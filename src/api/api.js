@@ -3,9 +3,14 @@ let url = "http://localhost:5076/api/";
 export async function getHandlelister(userId) {
   const response = await fetch(url + "Handleliste/byUserId/" + userId, {
     method: "GET",
-    headers: { "Access-Control-Allow-Origin": "http://localhost:5076" },
+    headers: {
+      "Access-Control-Allow-Origin": "http://localhost:5076",
+      accept: "text/plain",
+    },
   });
   const data = await response.json();
+  console.log(data);
+  console.log(url + "Handleliste/byUserId/" + userId);
   return data;
 }
 

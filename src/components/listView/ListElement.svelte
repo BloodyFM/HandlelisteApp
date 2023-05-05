@@ -31,10 +31,17 @@
   let showModal = false;
 </script>
 
-<li>
-  <a href={"/detail/" + id}>{title}</a>
-  <Button on:click={cloneHandler}>Clone</Button>
-  <Button on:click={() => (showModal = true)}>Delete</Button>
+<li class="row bg-secondary rounded-5 fs-1 fw-bold">
+  <a class="col-6 text-start text-decoration-none" href={"/detail/" + id}
+    >{title}</a
+  >
+  <button class="col-3 btn btn-primary rounded-5 fs-3 fw-bold" on:click={cloneHandler}
+    >Clone</button
+  >
+  <button
+    class="col-3 btn btn-primary rounded-5 fs-3 fw-bold"
+    on:click={() => (showModal = true)}>Delete</button
+  >
 </li>
 
 <Modal bind:showModal>
@@ -44,26 +51,4 @@
 </Modal>
 
 <style>
-  li {
-    display: flex;
-    justify-content: right;
-    background-color: var(--colorNav);
-    margin: 1px;
-    border-radius: 20px;
-  }
-
-  li:hover {
-    background-color: var(--colorBG);
-  }
-
-  li a {
-    width: 100%;
-    text-align: left;
-    text-decoration: none;
-    padding: 0.2rem;
-  }
-
-  li a:hover {
-    color: var(--colorUIFocus);
-  }
 </style>

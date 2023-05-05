@@ -9,10 +9,11 @@
   let data = [];
   onMount(async () => {
     $handlelister = [];
-    data = await getHandlelister($key); //currently hardcoded userId
+    data = await getHandlelister($key);
     for (const item of data) {
       addElement(item.handlelisteId, item.handlelisteName);
     }
+
     dataLoaded = true;
   });
 
@@ -35,10 +36,4 @@
 </ul>
 
 <style>
-  ul {
-    list-style: none;
-    position: relative;
-    margin: 0 0 5rem 0;
-    padding: 0;
-  }
 </style>
