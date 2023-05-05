@@ -1,6 +1,5 @@
 <script>
   import { key } from "../../store/auth";
-  import Button from "../UI/Button.svelte";
   import { goto } from "$app/navigation";
   import { loginUser } from "../../api/auth-api";
 
@@ -19,12 +18,33 @@
   };
 </script>
 
-<h1>Login side</h1>
+<h1 class="text-center mb-3 mt-5">Login side</h1>
 <form on:submit|preventDefault={loginHandler}>
-  <label>epost<input type="email" bind:value={email} required /></label>
-  <label>Password<input type="password" bind:value={password} required /></label
-  >
-  <div>
-    <Button type="submit">Login</Button>
+  <div class="row">
+    <div class="col-12 form-floating mb-3">
+      <input
+        class="form-control"
+        type="email"
+        id="inputEmail"
+        bind:value={email}
+        required
+        placeholder="name@email.com"
+      />
+      <label class="form-label" for="inputEmail">epost</label>
+    </div>
+    <div class="col-12 form-floating mb-3">
+      <input
+        class="form-control"
+        type="password"
+        id="inputPassword"
+        bind:value={password}
+        required
+        placeholder="12345678"
+      />
+      <label class="form-label" for="inputPassword">Password</label>
+    </div>
+    <div>
+      <button type="submit" class="btn btn-primary w-100 btn-lg">Login</button>
+    </div>
   </div>
 </form>

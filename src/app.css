@@ -1,19 +1,21 @@
 html {
-    background-color: var(--colorBg);
+  background-color: var(--colorBg);
 }
 body {
-    margin: 0;
+  margin: 0;
 }
 
-h1, h2, p, a {
-    color: var(--colorUI);
+h1,
+h2,
+p,
+a {
+  color: var(--colorUI);
 }
 
 :root {
-    --colorBg: #313338;
-    --colorNav: #2B2D31;
-    --colorNavInverse: #404249;
-    --colorUI: #B5BAC1;
-    --colorUIFocus: #F2F3F5;
-
+  --colorBg: #313338;
+  --colorNav: #2b2d31;
+  --colorNavInverse: #404249;
+  --colorUI: #b5bac1;
+  --colorUIFocus: #f2f3f5;
 }

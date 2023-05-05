@@ -12,7 +12,9 @@
 </script>
 
 <main>
-  <slot />
+  <div class="container-fluid container-max-width bg-black">
+    <slot />
+  </div>
 </main>
 
 {#if $isLoggedIn}
@@ -20,4 +22,7 @@
 {/if}
 
 <style>
+  .container-max-width {
+    max-width: 800px;
+  }
 </style>
