@@ -1,0 +1,19 @@
+html {
+    background-color: var(--colorBg);
+}
+body {
+    margin: 0;
+}
+
+h1, h2, p, a {
+    color: var(--colorUI);
+}
+
+:root {
+    --colorBg: #313338;
+    --colorNav: #2B2D31;
+    --colorNavInverse: #404249;
+    --colorUI: #B5BAC1;
+    --colorUIFocus: #F2F3F5;
+
+}
