@@ -9,12 +9,15 @@
   let data = [];
   onMount(async () => {
     $handlelister = [];
-    data = await getHandlelister($key);
-    for (const item of data) {
-      addElement(item.handlelisteId, item.handlelisteName);
-    }
+    const userId = $key;
+    if (userId != "") {
+      data = await getHandlelister(userId); // "y0Wm7bG22RgyL3pn15PAHIktQuA3"
+      for (const item of data) {
+        addElement(item.handlelisteId, item.handlelisteName);
+      }
 
-    dataLoaded = true;
+      dataLoaded = true;
+    }
   });
 
   const addElement = (id, name) => {
