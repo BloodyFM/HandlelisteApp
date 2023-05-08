@@ -1,6 +1,5 @@
 <script>
   import { inputs } from "../../store/vare";
-  import Button from "../UI/Button.svelte";
   import { addVarer } from "../../api/api";
 
   export let vareData = null;
@@ -43,8 +42,9 @@
   };
 </script>
 
-<li>
+<li class="mt-1 d-flex">
   <input
+    class="form-control bg-secondary border-secondary-subtle fs-3 rounded-5"
     type="text"
     list="varer-selection"
     name={"varer" + id}
@@ -59,28 +59,40 @@
     {/if}
   </datalist>
   <input
-    class="vare-mengde"
+    class="form-control bg-secondary border-secondary-subtle fs-3 rounded-5 custom-width mx-1"
     type="number"
     name={"varer-mengde" + id}
     min="1"
+    max="99"
     bind:value={amount}
     on:blur={amountBlurHandler}
   />
-  <Button on:click={removeInput}>-</Button>
+  <button
+    class="btn btn-primary rounded-5 fs-3 custom-padding"
+    on:click={removeInput}>-</button
+  >
 </li>
 
 <style>
-  li {
-    display: flex;
-    justify-content: center;
+  .custom-width {
+    max-width: 3.5rem;
   }
-  input {
-    background-color: var(--colorNavInverse);
-    border: 1px inset var(--colorNav);
-    border-radius: 20px;
-    color: var(--colorUI);
+  .custom-padding {
+    padding-left: 1.3rem;
+    padding-right: 1.3rem;
   }
-  .vare-mengde {
-    width: 2rem;
+
+  /* hide annoying number arrows */
+  /* Chrome, Safari, Edge, Opera */
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  /* Firefox */
+  input[type="number"] {
+    -moz-appearance: textfield;
+    appearance: textfield;
   }
 </style>

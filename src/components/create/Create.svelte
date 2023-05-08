@@ -99,11 +99,11 @@
       </div>
       <h2 class="fw-bold fs-1 my-3">Varer</h2>
       <button
-        class="btn btn-primary rounded-5 w-100"
+        class="btn btn-primary rounded-5 w-100 fs-3 fw-bold"
         type="button"
         on:click={addInputHandler}>+</button
       >
-      <ul>
+      <ul class="p-0">
         {#each { length: $inputs.length } as _, index}
           {@const reverseIndex = $inputs.length - 1 - index}
           <VareInput
