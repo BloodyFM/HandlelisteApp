@@ -12,9 +12,7 @@
 </script>
 
 <main>
-  <div
-    class="container-fluid container-max-width bg-black p-0"
-  >
+  <div class="container-fluid container-max-width bg-custom p-0">
     <slot />
   </div>
 </main>
@@ -27,7 +25,7 @@
   .container-max-width {
     max-width: 800px;
   }
-  .position-relative {
-    position: relative;
+  .bg-custom {
+    background-color: var(--colorBg) !important;
   }
 </style>
