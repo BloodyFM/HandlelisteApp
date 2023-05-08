@@ -89,6 +89,7 @@
       <div class="form-floating">
         <input
           class="form-control rounded-5 bg-secondary border-secondary-subtle"
+          type="text"
           id="name"
           name="handleliste-name"
           required

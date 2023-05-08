@@ -16,11 +16,12 @@
     for (const { vareId, vareName, mengde } of data.varer) {
       addInput(vareId, vareName, mengde);
     }
-    console.log(data);
+    //console.log(data);
   });
 
   const submitHandler = async () => {
-    console.log("onsubmit");
+    document.getElementById("btn-submit").disabled = true;
+    //console.log("onsubmit");
     data.handlelisteName = name;
     let newVarer = []; // for pushing new Varer
 
@@ -78,14 +79,14 @@
     //put new varer in the back (important for the api to work)
     data.varer = [...data.varer, ...newVarer];
 
-    console.log(data);
+    //console.log(data);
 
     await editHandleliste(data);
     goto("/detail/" + id, { replaceState: true });
   };
 
   //$: console.log(vareData);
-  $: console.log($inputs);
+  //$: console.log($inputs);
   $inputs = [];
   $nrInputs = 0;
 
@@ -99,72 +100,60 @@
   };
 </script>
 
-<div>
-  <h1>Edit Handleliste</h1>
-  <form on:submit|preventDefault={submitHandler}>
-    <label
-      >Listenavn<input
-        id="name"
-        name="handleliste-name"
-        bind:value={name}
-      /></label
-    >
-    <h2>Varer</h2>
-    <div class="add-btn">
-      <Button on:click={addInputHandler}>+</Button>
-    </div>
-    <ul>
-      {#each { length: $inputs.length } as _, index}
-        {@const reverseIndex = $inputs.length - 1 - index}
-        <VareInput
-          bind:vareData
-          bind:vareId={$inputs[reverseIndex].vareId}
-          id={$inputs[reverseIndex].id}
-          bind:value={$inputs[reverseIndex].vareName}
-          bind:amount={$inputs[reverseIndex].amount}
+<form on:submit|preventDefault={submitHandler}>
+  <div class="row m-0">
+    <div class="col-12 text-center">
+      <h1 class="fw-bold fs-1 my-3">Edit Handleliste</h1>
+      <div class="form-floating">
+        <input
+          class="form-control rounded-5 bg-secondary border-secondary-subtle"
+          type="text"
+          id="name"
+          bind:value={name}
+          required
+          placeholder="Name"
         />
-      {/each}
-    </ul>
-    <div class="exnav">
-      <Button type="submit">Save</Button>
+        <label class="form-label" for="name">Listenavn</label>
+      </div>
+      <h2 class="fw-bold fs-1 my-3">Varer</h2>
+      <button
+        class="btn btn-primary rounded-5 w-100"
+        type="button"
+        on:click={addInputHandler}>+</button
+      >
+      <ul>
+        {#each { length: $inputs.length } as _, index}
+          {@const reverseIndex = $inputs.length - 1 - index}
+          <VareInput
+            bind:vareData
+            bind:vareId={$inputs[reverseIndex].vareId}
+            id={$inputs[reverseIndex].id}
+            bind:value={$inputs[reverseIndex].vareName}
+            bind:amount={$inputs[reverseIndex].amount}
+          />
+        {/each}
+      </ul>
     </div>
-  </form>
-</div>
+    <div class="col-12 btn-bottom-nav bg-black px-3">
+      <button
+        class="btn btn-primary rounded-5 w-100 fs-3 fw-bold mb-2"
+        type="submit"
+        id="btn-submit">Save</button
+      >
+    </div>
+  </div>
+</form>
 
 <style>
-  h1,
-  h2 {
-    text-align: center;
-    margin: 0.5rem;
-  }
-  label {
-    color: var(--colorUI);
-    display: flex;
-    justify-content: center;
-  }
-  input {
-    background-color: var(--colorNavInverse);
-    border: 1px inset var(--colorNav);
-    border-radius: 20px;
-    color: var(--colorUI);
-    margin-left: 0.3rem;
-  }
-  .exnav {
-    display: flex;
-    justify-content: center;
-    position: fixed;
-    width: 100%;
-    bottom: 4rem;
-    background-color: var(--colorNav);
-  }
   ul {
-    list-style: none;
-    position: relative;
-    margin: 0 0 6rem 0;
-    padding: 0;
+    max-height: calc(
+      100vh - 24.6rem
+    ); /* adjust the value to account for the height of your nav bar */
+    overflow-y: auto;
   }
-  .add-btn {
-    display: flex;
-    justify-content: center;
+  .btn-bottom-nav {
+    position: fixed;
+    bottom: 4.1rem;
+    max-width: 800px;
   }
 </style>
