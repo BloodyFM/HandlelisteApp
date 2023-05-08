@@ -31,12 +31,13 @@
   let showModal = false;
 </script>
 
-<li class="row bg-secondary rounded-5 fs-1 fw-bold">
+<li class="row bg-secondary rounded-5 fs-1 fw-bold mt-1">
   <a class="col-6 text-start text-decoration-none" href={"/detail/" + id}
     >{title}</a
   >
-  <button class="col-3 btn btn-primary rounded-5 fs-3 fw-bold" on:click={cloneHandler}
-    >Clone</button
+  <button
+    class="col-3 btn btn-primary rounded-5 fs-3 fw-bold"
+    on:click={cloneHandler}>Clone</button
   >
   <button
     class="col-3 btn btn-primary rounded-5 fs-3 fw-bold"

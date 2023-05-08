@@ -9,8 +9,6 @@ export async function getHandlelister(userId) {
     },
   });
   const data = await response.json();
-  console.log(data);
-  console.log(url + "Handleliste/byUserId/" + userId);
   return data;
 }
 

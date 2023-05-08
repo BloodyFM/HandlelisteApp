@@ -26,7 +26,7 @@
   };
 </script>
 
-<ul>
+<ul class="px-3">
   {#if dataLoaded && data.length > 0}
     {#each $handlelister as item}
       <ListElement id={item.id} title={item.name} />
@@ -39,4 +39,10 @@
 </ul>
 
 <style>
+  ul {
+    max-height: calc(
+      100vh - 5rem
+    ); /* adjust the value to account for the height of your nav bar */
+    overflow-y: auto;
+  }
 </style>

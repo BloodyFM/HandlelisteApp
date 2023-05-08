@@ -15,7 +15,11 @@
   else liClass = "";
 </script>
 
-<li class={liClass} on:click={onClickHandler} on:keydown>
+<li
+  class={`row bg-secondary rounded-5 fs-1 fw-bold ${liClass}`}
+  on:click={onClickHandler}
+  on:keydown
+>
   <h2>{item.vareName}</h2>
   <div>
     <p>{item.mengde}</p>
@@ -32,7 +36,7 @@
     margin: 1px;
   }
   .collected {
-    background-color: var(--colorNavInverse);
+    background-color: green;
   }
   h2,
   p {

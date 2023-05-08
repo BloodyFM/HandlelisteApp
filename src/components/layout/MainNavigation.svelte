@@ -15,32 +15,45 @@
   let create = "";
   let listview = "";
   $: {
-    create = url == "/create" ? "active-route" : "";
+    create = url == "/create" ? "active" : "";
   }
   $: {
-    listview = url == "/" ? "active-route" : "";
+    listview = url == "/" ? "active" : "";
+    console.log("listview:");
+    console.log(listview);
   }
 </script>
 
-<header class="container-fluid container-max-width bg-black">
-  <nav>
-    <ul class="row">
-      <li class="col ${create}">
-        <a href="/create">
-          <p>+</p>
-        </a>
-      </li>
-      <li class="col ${listview}">
-        <a href="/">
-          <p>Lister</p>
-        </a>
-      </li>
-      <li class="col">
-        <button class="btn btn-primary" on:click={onLogoutHandler}>
-          <p>Logout</p>
-        </button>
-      </li>
-    </ul>
+<header>
+  <nav class="navbar navbar-expand navbar-dark fixed-bottom bg-black">
+    <div class="container-fluid container-max-width py-0 px-3">
+      <ul class="nav navbar-nav w-100 d-flex">
+        <li class="nav-item flex-fill">
+          <a
+            class={`nav-link rounded-5 fs-3 fw-bold text-center bg-primary ${create}`}
+            href="/create"
+          >
+            +
+          </a>
+        </li>
+        <li class="nav-item flex-fill">
+          <a
+            class={`nav-link rounded-5 fs-3 fw-bold text-center bg-primary ${listview}`}
+            href="/"
+          >
+            Lister
+          </a>
+        </li>
+        <li class="nav-item flex-fill d-flex">
+          <button
+            class="nav-link rounded-5 fs-3 fw-bold flex-fill bg-primary flex-fill"
+            on:click={onLogoutHandler}
+          >
+            Logout
+          </button>
+        </li>
+      </ul>
+    </div>
   </nav>
 </header>
 

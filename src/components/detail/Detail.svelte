@@ -14,44 +14,36 @@
 </script>
 
 {#if data.handlelisteName}
-  <div class="detail">
-    <h1>{data.handlelisteName}</h1>
-    <ul>
-      {#each data.varer as item}
-        <DetailItems {item} {id} />
-      {/each}
-    </ul>
-  </div>
-  <div class="exnav">
-    <Button on:click={() => goto("/edit/" + id)}>Edit</Button>
+  <div class="row m-0">
+    <div class="col-12">
+      <h1 class="text-center fs-1 fw-bold">{data.handlelisteName}</h1>
+      <ul class="px-1">
+        {#each data.varer as item}
+          <DetailItems {item} {id} />
+        {/each}
+      </ul>
+    </div>
+    <div class="col-12 btn-bottom-nav bg-black px-3">
+      <button
+        class="btn btn-primary rounded-5 w-100 fs-3 fw-bold mb-2"
+        on:click={() => goto("/edit/" + id)}>Edit</button
+      >
+    </div>
   </div>
 {:else}
-  <p>loading...</p>
+  <p class="text-center fs-1 fw-bold">loading...</p>
 {/if}
 
 <style>
-  .detail {
-    margin: 0;
-    width: 100%;
-    height: 100%;
-    background-color: transparent;
-  }
-  h1 {
-    margin: 0;
-    text-align: center;
-  }
   ul {
-    list-style: none;
-    position: relative;
-    margin: 0 0 6rem 0;
-    padding: 0;
+    max-height: calc(
+      100vh - 11.5rem
+    ); /* adjust the value to account for the height of your nav bar */
+    overflow-y: auto;
   }
-  .exnav {
-    display: flex;
-    justify-content: center;
+  .btn-bottom-nav {
     position: fixed;
-    width: 100%;
     bottom: 4rem;
-    background-color: var(--colorNav);
+    max-width: 800px;
   }
 </style>
