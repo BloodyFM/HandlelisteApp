@@ -19,8 +19,6 @@
   }
   $: {
     listview = url == "/" ? "active" : "";
-    console.log("listview:");
-    console.log(listview);
   }
 </script>
 
@@ -36,7 +34,7 @@
             +
           </a>
         </li>
-        <li class="nav-item flex-fill">
+        <li class="nav-item flex-fill mx-2">
           <a
             class={`nav-link rounded-5 fs-3 fw-bold text-center bg-primary ${listview}`}
             href="/"

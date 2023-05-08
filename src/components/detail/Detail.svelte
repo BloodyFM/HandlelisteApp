@@ -2,7 +2,6 @@
   import { onMount } from "svelte";
   import { getDetailedHandleliste } from "../../api/api";
   import DetailItems from "./DetailItems.svelte";
-  import Button from "../UI/Button.svelte";
   import { goto } from "$app/navigation";
 
   export let id = 0;
@@ -37,13 +36,13 @@
 <style>
   ul {
     max-height: calc(
-      100vh - 11.5rem
+      100vh - 11.9rem
     ); /* adjust the value to account for the height of your nav bar */
     overflow-y: auto;
   }
   .btn-bottom-nav {
     position: fixed;
-    bottom: 4rem;
+    bottom: 4.1rem;
     max-width: 800px;
   }
 </style>
