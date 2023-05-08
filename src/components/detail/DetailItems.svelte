@@ -16,38 +16,18 @@
 </script>
 
 <li
-  class={`row bg-secondary rounded-5 fs-1 fw-bold ${liClass}`}
+  class={`bg-secondary rounded-5 fs-1 fw-bold d-flex d-flex justify-content-between ps-3 mt-1 ${liClass}`}
   on:click={onClickHandler}
   on:keydown
 >
-  <h2>{item.vareName}</h2>
-  <div>
-    <p>{item.mengde}</p>
+  <h2 class="m-0 fs-1 fw-bold">{item.vareName}</h2>
+  <div class="bg-primary rounded-5 px-3">
+    <p class="m-0">{item.mengde}</p>
   </div>
 </li>
 
 <style>
-  li {
-    display: flex;
-    justify-content: space-between;
-    background-color: var(--colorNav);
-    border-radius: 20px;
-    padding-left: 0.5rem;
-    margin: 1px;
-  }
   .collected {
-    background-color: green;
-  }
-  h2,
-  p {
-    font-size: 1.5rem;
-    margin: 0;
-  }
-  div {
-    text-align: center;
-    background-color: var(--colorNavInverse);
-    border-radius: 20px;
-    width: auto;
-    padding: 0 0.5rem;
+    background-color: green !important;
   }
 </style>
