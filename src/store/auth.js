@@ -12,7 +12,6 @@ const setIsLoggedIn = (key) => {
     const expirationTime = localStorage.getItem("expirationTime");
     if (expirationTime) {
       const remainingTime = calculateRemainingTime(expirationTime);
-      console.log(remainingTime);
       logoutTimer = setTimeout(logoutCtx, remainingTime);
     }
     return true;
@@ -38,7 +37,6 @@ export const loginCtx = (newKey, expirationTime) => {
   key.set(newKey);
 
   const remainingTime = calculateRemainingTime(expirationTime);
-  console.log(remainingTime);
 
   logoutTimer = setTimeout(logoutCtx, remainingTime);
 };
@@ -51,6 +49,5 @@ export const logoutCtx = () => {
   if (logoutTimer) {
     clearTimeout(logoutTimer);
   }
-  console.log("timeout");
   goto("/auth", { replaceState: true });
 };

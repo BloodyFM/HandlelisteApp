@@ -39,16 +39,21 @@
     >{title}</a
   >
   <button
-    class="col-3 btn btn-primary rounded-5 fs-3 fw-bold"
+    class="col-3 btn btn-secondary rounded-5 fs-3 fw-bold"
     on:click={cloneHandler}>Clone</button
   >
   <button
-    class="col-3 btn btn-primary rounded-5 fs-3 fw-bold"
+    class="col-3 btn btn-secondary rounded-5 fs-3 fw-bold"
     on:click={() => (showModal = true)}>Delete</button
   >
 </li>
 
-<Modal {showModal} onClose={onModalClose} onConfirm={deleteHandler} title="Slett liste?">
+<Modal
+  {showModal}
+  onClose={onModalClose}
+  onConfirm={deleteHandler}
+  title="Slett liste?"
+>
   <p>Er du siker på at du vil slette handlelisten?</p>
 </Modal>
 

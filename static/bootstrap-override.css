@@ -33,12 +33,12 @@
 }
 
 .btn-secondary {
-  background-color: var(--colorNavInverse);
+  background-color: var(--colorNavInverse) !important;
   color: var(--colorUI);
-  border: 5px solid var(--colorNav);
+  border: 5px solid var(--colorBg);
 }
 .btn-secondary:hover {
-  background-color: transparent;
+  background-color: transparent !important;
   color: var(--colorUIFocus);
-  border-color: var(--colorBg);
+  border-color: var(--colorNav);
 }

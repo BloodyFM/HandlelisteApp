@@ -58,7 +58,7 @@
       >
     </div>
     <div>
-      <button type="submit" class="btn btn-primary w-100 btn-lg rounded-5"
+      <button type="submit" class="btn btn-secondary w-100 btn-lg rounded-5"
         >Login</button
       >
     </div>

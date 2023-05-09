@@ -68,7 +68,7 @@
     on:blur={amountBlurHandler}
   />
   <button
-    class="btn btn-primary rounded-5 fs-3 custom-padding"
+    class="btn btn-secondary rounded-5 fs-3 custom-padding"
     on:click={removeInput}>-</button
   >
 </li>

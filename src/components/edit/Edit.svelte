@@ -117,7 +117,7 @@
       </div>
       <h2 class="fw-bold fs-1 my-3">Varer</h2>
       <button
-        class="btn btn-primary rounded-5 w-100 fs-3 fw-bold mb-1"
+        class="btn btn-secondary rounded-5 w-100 fs-3 fw-bold mb-1"
         type="button"
         on:click={addInputHandler}>+</button
       >
