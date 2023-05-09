@@ -155,7 +155,4 @@
     bottom: 4.1rem;
     max-width: 800px;
   }
-  .bg-nav-custom {
-    background-color: var(--colorNav);
-  }
 </style>
