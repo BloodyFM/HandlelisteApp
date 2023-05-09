@@ -26,8 +26,18 @@
   color: var(--colorUI);
   border: 5px solid var(--colorNav);
 }
-
 .btn-primary:hover {
+  background-color: transparent;
+  color: var(--colorUIFocus);
+  border-color: var(--colorBg);
+}
+
+.btn-secondary {
+  background-color: var(--colorNavInverse);
+  color: var(--colorUI);
+  border: 5px solid var(--colorNav);
+}
+.btn-secondary:hover {
   background-color: transparent;
   color: var(--colorUIFocus);
   border-color: var(--colorBg);

@@ -1,4 +1,5 @@
 <script>
+  import { fade } from "svelte/transition";
   export let showModal;
   export let showBackdrop = true;
   export let onClose;
@@ -62,7 +63,7 @@
     </div>
   </div>
   {#if showBackdrop}
-    <div class="modal-backdrop show" />
+    <div class="modal-backdrop show" transition:fade={{ duration: 150 }} />
   {/if}
 {/if}
 

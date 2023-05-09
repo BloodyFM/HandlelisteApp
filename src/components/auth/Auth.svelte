@@ -1,6 +1,7 @@
 <script>
-  import { key } from "../../store/auth";
+  import { tweened } from "svelte/motion";
   import { goto } from "$app/navigation";
+  import { key, loginCtx } from "../../store/auth";
   import { loginUser } from "../../api/auth-api";
 
   let email = "";
@@ -10,12 +11,21 @@
     if (email.trim().includes("@") && password.trim().length >= 6) {
       const newKey = await loginUser(email, password);
       if (newKey) {
-        console.log(newKey);
-        key.set(newKey);
+        const expiresIn = 60 * 5; // in seconds
+        const expirationTime = new Date(
+          new Date().getTime() + expiresIn * 1000
+        );
+        loginCtx(newKey, expirationTime);
         goto("/", { replaceState: true });
       }
     }
   };
+  let timer = tweened(0);
+  // setInterval(() => {
+  //   if ($timer > 0) $timer--;
+  //   //else if ($isLoggedIn) key.set("");
+  //   console.log($timer);
+  // }, 1000);
 </script>
 
 <h1 class="text-center mb-3 mt-5">Login side</h1>

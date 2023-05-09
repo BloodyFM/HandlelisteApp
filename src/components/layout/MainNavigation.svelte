@@ -1,11 +1,11 @@
 <script>
   import { page } from "$app/stores";
-  import { key } from "../../store/auth";
+  import { key, logoutCtx } from "../../store/auth";
   import { goto } from "$app/navigation";
   import Modal from "../UI/Modal.svelte";
 
   const onLogoutHandler = () => {
-    key.set("");
+    logoutCtx();
     goto("/auth");
   };
 
