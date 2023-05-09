@@ -16,9 +16,6 @@
     for (let i = 0; i < $inputs.length; i++) {
       for (let j = i + 1; j < $inputs.length; j++) {
         if ($inputs[i].vareName.trim() === $inputs[j].vareName.trim()) {
-          // console.log(
-          //   `Merging ${$inputs[i].vareName} adding ${$inputs[j].amount}`
-          // );
           $inputs[i].amount += $inputs[j].amount;
           $inputs.splice(j, 1);
           j--; // since the array is now shorter we need to make sure we dont skip a spot
@@ -37,10 +34,8 @@
         isDeleted: false,
         mengde: $inputs[i].amount,
       };
-      //console.log($inputs[i].amount);
 
       if (isNew && $inputs[i].vareName.trim() != "") {
-        //console.log($inputs[i].vareName + " is new!");
         newVarer.push(inputtedVare);
       }
       if ($inputs[i].vareName.trim() != "") {
@@ -65,15 +60,12 @@
       handlelisteName: formData.get("handleliste-name"),
       varer: listVarer,
     };
-    //console.log(listeData);
 
     await createNewHandleliste(listeData);
     goto("/", { replaceState: true });
   };
 
-  //$: console.log(vareData);
   $inputs = [{ id: 0, vareName: "", amount: 1 }];
-  //$nrInputs.set(1);
 
   const addInputHandler = () => {
     var l = $inputs.length;

@@ -15,12 +15,10 @@
     for (const { vareId, vareName, mengde } of data.varer) {
       addInput(vareId, vareName, mengde);
     }
-    //console.log(data);
   });
 
   const submitHandler = async () => {
     document.getElementById("btn-submit").disabled = true;
-    //console.log("onsubmit");
     data.handlelisteName = name;
     let newVarer = []; // for pushing new Varer
 
@@ -78,14 +76,10 @@
     //put new varer in the back (important for the api to work)
     data.varer = [...data.varer, ...newVarer];
 
-    //console.log(data);
-
     await editHandleliste(data);
     goto("/detail/" + id, { replaceState: true });
   };
 
-  //$: console.log(vareData);
-  //$: console.log($inputs);
   $inputs = [];
   $nrInputs = 0;
 

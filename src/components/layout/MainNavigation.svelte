@@ -1,6 +1,6 @@
 <script>
   import { page } from "$app/stores";
-  import { key, logoutCtx } from "../../store/auth";
+  import { logoutCtx } from "../../store/auth";
   import { goto } from "$app/navigation";
   import Modal from "../UI/Modal.svelte";
 
