@@ -41,16 +41,16 @@
         <div class="modal-body">
           <slot />
         </div>
-        <div class="modal-footer">
+        <div class="modal-footer d-flex">
           <button
             type="button"
-            class="btn btn-secondary"
+            class="btn btn-primary rounded-5 flex-fill"
             data-dismiss="modal"
             on:click={modalCloseHandler}>Close</button
           >
           <button
             type="button"
-            class="btn btn-primary"
+            class="btn btn-primary rounded-5 flex-fill"
             on:click={() => {
               if (onConfirm) onConfirm();
             }}>Confirm</button
@@ -60,7 +60,8 @@
     </div>
   </div>
   {#if showBackdrop}
-    <div class="modal-backdrop show" />
+    <!-- svelte-ignore a11y-click-events-have-key-events -->
+    <div class="modal-backdrop show" on:click={modalCloseHandler} />
   {/if}
 {/if}
 

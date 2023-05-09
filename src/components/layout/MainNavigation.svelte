@@ -2,6 +2,7 @@
   import { page } from "$app/stores";
   import { key } from "../../store/auth";
   import { goto } from "$app/navigation";
+  import Modal from "../UI/Modal.svelte";
 
   const onLogoutHandler = () => {
     key.set("");
@@ -20,6 +21,12 @@
   $: {
     listview = url == "/" ? "active" : "";
   }
+
+  const onCloseModal = () => {
+    showModal = false;
+  };
+
+  let showModal = false;
 </script>
 
 <header>
@@ -45,7 +52,7 @@
         <li class="nav-item flex-fill d-flex">
           <button
             class="nav-link rounded-5 fs-3 fw-bold flex-fill bg-primary border-custom flex-fill"
-            on:click={onLogoutHandler}
+            on:click={() => (showModal = true)}
           >
             Logout
           </button>
@@ -54,6 +61,13 @@
     </div>
   </nav>
 </header>
+
+<Modal
+  title="Logout?"
+  {showModal}
+  onConfirm={onLogoutHandler}
+  onClose={onCloseModal}><p>Are you sure you want to log out?</p></Modal
+>
 
 <style>
   .container-max-width {
