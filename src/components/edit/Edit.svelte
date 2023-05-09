@@ -113,7 +113,7 @@
           required
           placeholder="Name"
         />
-        <label class="form-label" for="name">Listenavn</label>
+        <label class="form-label text-secondary" for="name">Listenavn</label>
       </div>
       <h2 class="fw-bold fs-1 my-3">Varer</h2>
       <button
@@ -134,9 +134,9 @@
         {/each}
       </ul>
     </div>
-    <div class="col-12 btn-bottom-nav bg-nav-custom mt-3 px-3">
+    <div class="col-12 btn-bottom-nav bg-nav-custom pt-2 px-3">
       <button
-        class="btn btn-primary rounded-5 w-100 fs-3 fw-bold mb-2"
+        class="btn btn-primary rounded-5 w-100 fs-3 fw-bold mb-3"
         type="submit"
         id="btn-submit">Save</button
       >
@@ -147,7 +147,7 @@
 <style>
   ul {
     max-height: calc(
-      100vh - 24.8rem
+      100vh - 27.1rem
     ); /* adjust the value to account for the height of your nav bar */
     overflow-y: auto;
   }

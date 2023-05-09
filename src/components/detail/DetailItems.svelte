@@ -28,6 +28,9 @@
 
 <style>
   .collected {
+    background-color: var(--colorNavInverse) !important;
+  }
+  .collected div {
     background-color: green !important;
   }
 </style>

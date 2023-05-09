@@ -28,7 +28,7 @@
       <ul class="nav navbar-nav w-100 d-flex">
         <li class="nav-item flex-fill">
           <a
-            class={`nav-link rounded-5 fs-3 fw-bold text-center bg-primary ${create}`}
+            class={`nav-link rounded-5 fs-3 fw-bold text-center bg-primary border-custom ${create}`}
             href="/create"
           >
             +
@@ -36,7 +36,7 @@
         </li>
         <li class="nav-item flex-fill mx-2">
           <a
-            class={`nav-link rounded-5 fs-3 fw-bold text-center bg-primary ${listview}`}
+            class={`nav-link rounded-5 fs-3 fw-bold text-center bg-primary border-custom ${listview}`}
             href="/"
           >
             Lister
@@ -44,7 +44,7 @@
         </li>
         <li class="nav-item flex-fill d-flex">
           <button
-            class="nav-link rounded-5 fs-3 fw-bold flex-fill bg-primary flex-fill"
+            class="nav-link rounded-5 fs-3 fw-bold flex-fill bg-primary border-custom flex-fill"
             on:click={onLogoutHandler}
           >
             Logout
@@ -61,5 +61,11 @@
   }
   .bg-nav-custom {
     background-color: var(--colorNav);
+  }
+  .border-custom {
+    border: 5px solid var(--colorNav);
+  }
+  .border-custom:hover {
+    border-color: var(--colorBg);
   }
 </style>

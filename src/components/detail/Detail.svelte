@@ -22,9 +22,9 @@
         {/each}
       </ul>
     </div>
-    <div class="col-12 btn-bottom-nav bg-nav-custom px-3">
+    <div class="col-12 btn-bottom-nav bg-nav-custom pt-2 px-3">
       <button
-        class="btn btn-primary rounded-5 w-100 fs-3 fw-bold mb-2"
+        class="btn btn-primary rounded-5 w-100 fs-3 fw-bold mb-3"
         on:click={() => goto("/edit/" + id)}>Edit</button
       >
     </div>
@@ -36,7 +36,7 @@
 <style>
   ul {
     max-height: calc(
-      100vh - 11.9rem
+      100vh - 13.4rem
     ); /* adjust the value to account for the height of your nav bar */
     overflow-y: auto;
   }

@@ -2,18 +2,29 @@
   background-color: var(--colorBg) !important;
 }
 .bg-secondary {
-  background-color: var(--colorNav);
-  color: var(--colorUI);
+  background-color: var(--colorNav) !important;
+  color: var(--colorUI) !important;
 }
 .bg-secondary:hover {
-  background-color: var(--colorBg);
+  background-color: var(--colorBg) !important;
+  color: var(--colorUIFocus) !important;
+}
+
+.bg-primary {
+  background-color: var(--colorNavInverse) !important;
+  color: var(--colorUI);
+  border-color: var(--colorNav);
+}
+.bg-primary:hover {
+  background-color: transparent !important;
   color: var(--colorUIFocus);
+  border-color: var(--colorBg);
 }
 
 .btn-primary {
   background-color: var(--colorNavInverse);
   color: var(--colorUI);
-  border-color: var(--colorNav);
+  border: 5px solid var(--colorNav);
 }
 
 .btn-primary:hover {
