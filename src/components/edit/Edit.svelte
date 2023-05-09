@@ -134,7 +134,7 @@
         {/each}
       </ul>
     </div>
-    <div class="col-12 btn-bottom-nav bg-nav-custom px-3">
+    <div class="col-12 btn-bottom-nav bg-nav-custom mt-3 px-3">
       <button
         class="btn btn-primary rounded-5 w-100 fs-3 fw-bold mb-2"
         type="submit"

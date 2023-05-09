@@ -29,6 +29,9 @@
   };
 
   let showModal = false;
+  const onModalClose = () => {
+    showModal = false;
+  };
 </script>
 
 <li class="row bg-secondary rounded-5 fs-1 fw-bold mt-1">
@@ -45,10 +48,8 @@
   >
 </li>
 
-<Modal bind:showModal>
+<Modal {showModal} onClose={onModalClose} onConfirm={deleteHandler} title="Slett liste?">
   <p>Er du siker på at du vil slette handlelisten?</p>
-  <Button on:click={deleteHandler}>Delete</Button>
-  <Button on:click={() => (showModal = false)}>Cancel</Button>
 </Modal>
 
 <style>

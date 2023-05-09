@@ -1,58 +1,74 @@
 <script>
   export let showModal;
+  export let showBackdrop = true;
+  export let onClose;
+  export let onConfirm;
+  export let title = null;
 
-  // HTMLDialogElement
-  let dialog;
-
-  $: if (dialog && showModal) dialog.showModal();
-  $: if (dialog && !showModal) dialog.close();
+  const modalCloseHandler = () => {
+    showModal = false;
+    if (onClose) onClose();
+  };
 </script>
 
-<!-- svelte-ignore a11y-click-events-have-key-events -->
-<dialog
-  bind:this={dialog}
-  on:close={() => (showModal = false)}
-  on:click|self={() => dialog.close()}
->
-  <div on:click|stopPropagation>
-    <slot />
+{#if showModal}
+  <div
+    class="modal"
+    id="modalComponent"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="modalComponentLabel"
+    aria-hidden={false}
+  >
+    <div class="modal-dialog" role="document">
+      <div class="modal-content rounded-5 bg-modal-custom">
+        <div class="modal-header">
+          {#if title}
+            <h5 class="modal-title text-secondary" id="modalComponentLabel">
+              {title}
+            </h5>
+          {/if}
+          <button
+            type="button"
+            class="close btn ms-auto text-secondary"
+            data-dismiss="modal"
+            aria-label="Close"
+            on:click={modalCloseHandler}
+          >
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <slot />
+        </div>
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-secondary"
+            data-dismiss="modal"
+            on:click={modalCloseHandler}>Close</button
+          >
+          <button
+            type="button"
+            class="btn btn-primary"
+            on:click={() => {
+              if (onConfirm) onConfirm();
+            }}>Confirm</button
+          >
+        </div>
+      </div>
+    </div>
   </div>
-</dialog>
+  {#if showBackdrop}
+    <div class="modal-backdrop show" />
+  {/if}
+{/if}
 
 <style>
-  dialog {
-    max-width: 32em;
-    border-radius: 20px;
-    border: none;
-    padding: 0;
+  .modal {
+    display: block;
   }
-  dialog::backdrop {
-    background: rgba(0, 0, 0, 0.3);
-  }
-  dialog > div {
-    padding: 1rem;
-    background-color: var(--colorBg);
-  }
-  dialog[open] {
-    animation: zoom 0.3s ease-out;
-  }
-  @keyframes zoom {
-    from {
-      transform: scale(0.5) translate(0%, 300%);
-    }
-    to {
-      transform: scale(1) translate(0%, 0%);
-    }
-  }
-  dialog[open]::backdrop {
-    animation: fade 0.2s ease-out;
-  }
-  @keyframes fade {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
+  .bg-modal-custom {
+    background-color: var(--colorNav);
   }
 </style>

@@ -1,0 +1,23 @@
+.bg-body {
+  background-color: var(--colorBg) !important;
+}
+.bg-secondary {
+  background-color: var(--colorNav);
+  color: var(--colorUI);
+}
+.bg-secondary:hover {
+  background-color: var(--colorBg);
+  color: var(--colorUIFocus);
+}
+
+.btn-primary {
+  background-color: var(--colorNavInverse);
+  color: var(--colorUI);
+  border-color: var(--colorNav);
+}
+
+.btn-primary:hover {
+  background-color: transparent;
+  color: var(--colorUIFocus);
+  border-color: var(--colorBg);
+}
