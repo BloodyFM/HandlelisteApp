@@ -33,7 +33,7 @@
   <div class="row">
     <div class="col-12 form-floating mb-3">
       <input
-        class="form-control bg-secondary rounded-5"
+        class="form-control bg-dark rounded-5"
         type="email"
         id="inputEmail"
         bind:value={email}
@@ -46,7 +46,7 @@
     </div>
     <div class="col-12 form-floating mb-3">
       <input
-        class="form-control bg-secondary rounded-5"
+        class="form-control bg-dark rounded-5"
         type="password"
         id="inputPassword"
         bind:value={password}

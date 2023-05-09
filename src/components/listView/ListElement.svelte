@@ -1,5 +1,4 @@
 <script>
-  import Button from "../UI/Button.svelte";
   import { deleteHandleliste, cloneHandleliste } from "../../api/api";
   import { handlelister } from "../../store/handleliste";
   import Modal from "../UI/Modal.svelte";

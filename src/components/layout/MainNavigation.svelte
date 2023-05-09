@@ -30,7 +30,7 @@
 </script>
 
 <header>
-  <nav class="navbar navbar-expand navbar-dark fixed-bottom bg-nav-custom">
+  <nav class="navbar navbar-expand navbar-dark fixed-bottom bg-dark">
     <div class="container-fluid container-max-width py-0 px-3">
       <ul class="nav navbar-nav w-100 d-flex">
         <li class="nav-item flex-fill">
@@ -72,9 +72,6 @@
 <style>
   .container-max-width {
     max-width: 800px;
-  }
-  .bg-nav-custom {
-    background-color: var(--colorNav);
   }
   .border-custom {
     border: 5px solid var(--colorNav);

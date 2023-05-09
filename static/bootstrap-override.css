@@ -1,6 +1,11 @@
 .bg-body {
   background-color: var(--colorBg) !important;
 }
+.bg-dark {
+  background-color: var(--colorNav) !important;
+  color: var(--colorUI) !important;
+}
+
 .bg-secondary {
   background-color: var(--colorNav) !important;
   color: var(--colorUI) !important;

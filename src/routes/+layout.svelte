@@ -12,7 +12,7 @@
 </script>
 
 <main>
-  <div class="container-fluid container-max-width bg-custom p-0">
+  <div class="container-fluid container-max-width bg-body p-0">
     <slot />
   </div>
 </main>
@@ -24,8 +24,5 @@
 <style>
   .container-max-width {
     max-width: 800px;
-  }
-  .bg-custom {
-    background-color: var(--colorBg) !important;
   }
 </style>

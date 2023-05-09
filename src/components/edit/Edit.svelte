@@ -2,7 +2,6 @@
   import { onMount } from "svelte";
   import { goto } from "$app/navigation";
   import { getDetailedHandleliste, editHandleliste } from "../../api/api";
-  import Button from "../UI/Button.svelte";
   import { inputs, nrInputs } from "../../store/vare";
   import VareInput from "../create/VareInput.svelte";
 
@@ -134,7 +133,7 @@
         {/each}
       </ul>
     </div>
-    <div class="col-12 btn-bottom-nav bg-nav-custom pt-2 px-3">
+    <div class="col-12 btn-bottom-nav bg-dark pt-2 px-3">
       <button
         class="btn btn-primary rounded-5 w-100 fs-3 fw-bold mb-3"
         type="submit"

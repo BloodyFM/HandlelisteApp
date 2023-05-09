@@ -116,7 +116,7 @@
         {/each}
       </ul>
     </div>
-    <div class="col-12 btn-bottom-nav bg-nav-custom pt-2 px-3">
+    <div class="col-12 btn-bottom-nav bg-dark pt-2 px-3">
       <button
         class="btn btn-primary rounded-5 w-100 fs-3 fw-bold mb-3"
         type="submit"
@@ -137,8 +137,5 @@
     position: fixed;
     bottom: 4.1rem;
     max-width: 800px;
-  }
-  .bg-nav-custom {
-    background-color: var(--colorNav);
   }
 </style>
