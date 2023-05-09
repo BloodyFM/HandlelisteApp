@@ -12,6 +12,7 @@
 </script>
 
 {#if showModal}
+  <!-- svelte-ignore a11y-click-events-have-key-events -->
   <div
     class="modal"
     id="modalComponent"
@@ -19,8 +20,9 @@
     role="dialog"
     aria-labelledby="modalComponentLabel"
     aria-hidden={false}
+    on:click={modalCloseHandler}
   >
-    <div class="modal-dialog" role="document">
+    <div class="modal-dialog" role="document" on:click|stopPropagation>
       <div class="modal-content rounded-5 bg-modal-custom">
         <div class="modal-header">
           {#if title}
@@ -60,8 +62,7 @@
     </div>
   </div>
   {#if showBackdrop}
-    <!-- svelte-ignore a11y-click-events-have-key-events -->
-    <div class="modal-backdrop show" on:click={modalCloseHandler} />
+    <div class="modal-backdrop show" />
   {/if}
 {/if}
 
