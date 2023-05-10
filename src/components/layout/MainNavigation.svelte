@@ -30,7 +30,10 @@
 </script>
 
 <header>
-  <nav class="navbar navbar-expand navbar-dark fixed-bottom bg-dark">
+  <nav
+    class="navbar navbar-expand navbar-dark fixed-bottom bg-dark mx-auto"
+    style="max-width: 800px;"
+  >
     <div class="container-fluid container-max-width py-0 px-3">
       <ul class="nav navbar-nav w-100 d-flex">
         <li class="nav-item flex-fill">
