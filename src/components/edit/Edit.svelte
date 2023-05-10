@@ -89,15 +89,14 @@
 
       if (isNew) {
         console.log("here new");
-        const x = await addVarer([
+        const newlyCreatedVare = await addVarer([
           {
             vareId: 0,
             vareName: newVare.vareName,
           },
         ]);
-        console.log(x);
-        newVare.vareId = x.vareId;
-        console.log(vareId);
+        console.log(newlyCreatedVare[0]);
+        newVare.vareId = newlyCreatedVare[0].vareId;
       }
     }
 
