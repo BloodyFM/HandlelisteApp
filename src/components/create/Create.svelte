@@ -29,7 +29,7 @@
         if ($inputs[i].vareName === vareData[v].vareName) isNew = false;
       }
       const inputtedVare = {
-        vareId: 0, // to be assigned
+        vareId: $inputs.vareId, // to be assigned
         vareName: $inputs[i].vareName.trim(),
         isDeleted: false,
         mengde: $inputs[i].amount,
@@ -43,7 +43,9 @@
       }
     }
     // here we post the new vare articles
+    console.log("addvarer create");
     var newlyCreatedVarer = await addVarer(newVarer);
+    console.log("addvarer create done");
     vareData = [...vareData, ...newlyCreatedVarer];
     // need to assign the id's now that I have all Vare data from database
     // thought filter a better way of looking for the correct article when I know it exists
@@ -108,7 +110,7 @@
         {/each}
       </ul>
     </div>
-    <div class="col-12 btn-bottom-nav bg-dark pt-2 px-3">
+    <div class="col-12 btn-bottom-nav bg-dark pt-2 px-3 rounded-top-5">
       <button
         class="btn btn-primary rounded-5 w-100 fs-3 fw-bold mb-3"
         type="submit"

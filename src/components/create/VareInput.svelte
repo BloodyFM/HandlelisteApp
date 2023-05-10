@@ -1,5 +1,5 @@
 <script>
-  import { inputs } from "../../store/vare";
+  import { inputs, nrInputs } from "../../store/vare";
   import { addVarer } from "../../api/api";
 
   export let vareData = null;
@@ -21,13 +21,17 @@
       if (value.trim() === vare.vareName) isNew = false;
     }
     if (isNew) {
+      console.log("addvarer input");
       const newlyCreatedVare = await addVarer([
         {
           vareId: 0,
           vareName: value.trim(),
         },
       ]);
-      vareId = newlyCreatedVare.vareId;
+      console.log("addvarer input done");
+      vareId = newlyCreatedVare[0].vareId;
+      console.log(vareId);
+      $inputs[id] = { id, vareId, vareName: value, amount };
       vareData = [...vareData, ...newlyCreatedVare];
     } else {
       for (const vare of vareData) {

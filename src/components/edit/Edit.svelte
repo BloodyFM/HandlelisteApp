@@ -1,7 +1,11 @@
 <script>
   import { onMount } from "svelte";
   import { goto } from "$app/navigation";
-  import { getDetailedHandleliste, editHandleliste } from "../../api/api";
+  import {
+    getDetailedHandleliste,
+    editHandleliste,
+    addVarer,
+  } from "../../api/api";
   import { inputs, nrInputs } from "../../store/vare";
   import VareInput from "../create/VareInput.svelte";
 
@@ -22,6 +26,7 @@
     data.handlelisteName = name;
     let newVarer = []; // for pushing new Varer
 
+    // merging duplicates
     for (let i = 0; i < $inputs.length; i++) {
       for (let j = i + 1; j < $inputs.length; j++) {
         if ($inputs[i].vareName.trim() === $inputs[j].vareName.trim()) {
@@ -64,8 +69,8 @@
         });
       }
     }
+    // check for deleted varer
     for (const vare of data.varer) {
-      // check for deleted varer
       let deleted = true;
       for (let i = 0; i < $inputs.length; i++) {
         if (vare.vareId === $inputs[i].vareId) deleted = false;
@@ -73,9 +78,33 @@
       vare.isDeleted = deleted;
     }
 
+    console.log("here close");
+    //go through new varer just in case to se to that all the articles are created and have a vareId
+    for (const newVare of newVarer) {
+      let isNew = true;
+      for (let v = 0; v < vareData.length; v++) {
+        if (newVare.vareName === vareData[v].vareName) isNew = false;
+      }
+      console.log("here1");
+
+      if (isNew) {
+        console.log("here new");
+        const x = await addVarer([
+          {
+            vareId: 0,
+            vareName: newVare.vareName,
+          },
+        ]);
+        console.log(x);
+        newVare.vareId = x.vareId;
+        console.log(vareId);
+      }
+    }
+
     //put new varer in the back (important for the api to work)
     data.varer = [...data.varer, ...newVarer];
 
+    console.log(data);
     await editHandleliste(data);
     goto("/detail/" + id, { replaceState: true });
   };
@@ -127,7 +156,7 @@
         {/each}
       </ul>
     </div>
-    <div class="col-12 btn-bottom-nav bg-dark pt-2 px-3">
+    <div class="col-12 btn-bottom-nav bg-dark pt-2 px-3 rounded-top-5">
       <button
         class="btn btn-primary rounded-5 w-100 fs-3 fw-bold mb-3"
         type="submit"

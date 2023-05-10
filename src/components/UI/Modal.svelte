@@ -1,5 +1,5 @@
 <script>
-  import { fade } from "svelte/transition";
+  import { fade, fly } from "svelte/transition";
   export let showModal;
   export let showBackdrop = true;
   export let onClose;
@@ -23,7 +23,13 @@
     aria-hidden={false}
     on:click={modalCloseHandler}
   >
-    <div class="modal-dialog" role="document" on:click|stopPropagation>
+    <div
+      class="modal-dialog"
+      role="document"
+      on:click|stopPropagation
+      in:fly={{ y: -50, duration: 300 }}
+      out:fly={{ y: -50, duration: 300 }}
+    >
       <div class="modal-content rounded-5 bg-modal-custom">
         <div class="modal-header">
           {#if title}

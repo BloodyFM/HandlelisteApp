@@ -80,6 +80,8 @@ export async function getAllVarer() {
 }
 
 export async function addVarer(vareData) {
+  console.log("vareData in addVarer:");
+  console.log(vareData);
   const response = await fetch(url + "Vare", {
     method: "POST",
     body: JSON.stringify(vareData),
