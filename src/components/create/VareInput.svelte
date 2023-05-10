@@ -21,14 +21,12 @@
       if (value.trim() === vare.vareName) isNew = false;
     }
     if (isNew) {
-      console.log("addvarer input");
       const newlyCreatedVare = await addVarer([
         {
           vareId: 0,
           vareName: value.trim(),
         },
       ]);
-      console.log("addvarer input done");
       vareId = newlyCreatedVare[0].vareId;
       console.log(vareId);
       $inputs[id] = { id, vareId, vareName: value, amount };
@@ -38,7 +36,6 @@
         if (value.trim() === vare.vareName) vareId = vare.vareId;
       }
     }
-    console.log("onBlur");
   };
 
   const amountBlurHandler = () => {

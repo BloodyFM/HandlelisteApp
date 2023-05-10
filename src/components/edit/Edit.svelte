@@ -30,9 +30,6 @@
     for (let i = 0; i < $inputs.length; i++) {
       for (let j = i + 1; j < $inputs.length; j++) {
         if ($inputs[i].vareName.trim() === $inputs[j].vareName.trim()) {
-          console.log(
-            `Merging ${$inputs[i].vareName} adding ${$inputs[j].amount}`
-          );
           $inputs[i].amount += $inputs[j].amount;
           $inputs.splice(j, 1);
           j--; // since the array is now shorter we need to make sure we dont skip a spot
@@ -78,24 +75,20 @@
       vare.isDeleted = deleted;
     }
 
-    console.log("here close");
     //go through new varer just in case to se to that all the articles are created and have a vareId
     for (const newVare of newVarer) {
       let isNew = true;
       for (let v = 0; v < vareData.length; v++) {
         if (newVare.vareName === vareData[v].vareName) isNew = false;
       }
-      console.log("here1");
 
       if (isNew) {
-        console.log("here new");
         const newlyCreatedVare = await addVarer([
           {
             vareId: 0,
             vareName: newVare.vareName,
           },
         ]);
-        console.log(newlyCreatedVare[0]);
         newVare.vareId = newlyCreatedVare[0].vareId;
       }
     }
@@ -103,7 +96,6 @@
     //put new varer in the back (important for the api to work)
     data.varer = [...data.varer, ...newVarer];
 
-    console.log(data);
     await editHandleliste(data);
     goto("/detail/" + id, { replaceState: true });
   };

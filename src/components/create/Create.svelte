@@ -43,9 +43,7 @@
       }
     }
     // here we post the new vare articles
-    console.log("addvarer create");
     var newlyCreatedVarer = await addVarer(newVarer);
-    console.log("addvarer create done");
     vareData = [...vareData, ...newlyCreatedVarer];
     // need to assign the id's now that I have all Vare data from database
     // thought filter a better way of looking for the correct article when I know it exists
