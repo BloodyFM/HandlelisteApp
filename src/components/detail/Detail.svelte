@@ -31,18 +31,17 @@
         {/each}
       </ul>
     </div>
-    <div class="col-12 btn-bottom-nav bg-dark pt-2 px-3 rounded-top-5">
-      <button
-        class="btn btn-primary rounded-5 w-100 fs-3 fw-bold mb-3"
-        on:click={() => goto("/edit/" + id)}>Edit</button
-      >
-    </div>
-    <div class="col-12 btn-bottom-nav bg-dark pt-2 px-3 rounded-top-5">
+    <div class="col-12 btn-bottom-nav-top bg-dark pt-2 px-3 rounded-top-5">
       <button
         on:click={toggleHideCollected}
         class="btn btn-primary rounded-5 w-100 fs-3 fw-bold mb-3"
-        type="button"
         id="btn-submit">{hideToggleText}</button
+      >
+    </div>
+    <div class="col-12 btn-bottom-nav bg-dark pt-2 px-3">
+      <button
+        class="btn btn-primary rounded-5 w-100 fs-3 fw-bold mb-3"
+        on:click={() => goto("/edit/" + id)}>Edit</button
       >
     </div>
   </div>
@@ -53,9 +52,14 @@
 <style>
   ul {
     max-height: calc(
-      100vh - 13.4rem
+      100vh - 16.4rem
     ); /* adjust the value to account for the height of your nav bar */
     overflow-y: auto;
+  }
+  .btn-bottom-nav-top {
+    position: fixed;
+    bottom: 8.4rem;
+    max-width: 800px;
   }
   .btn-bottom-nav {
     position: fixed;
