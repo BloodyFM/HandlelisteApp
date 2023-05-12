@@ -3,6 +3,7 @@
 
   export let item = {};
   export let id = 0;
+  export let hideCollected = true;
   let isCollected = item.isCollected;
   let liClass = "";
 
@@ -15,16 +16,18 @@
   else liClass = "";
 </script>
 
-<li
-  class={`bg-secondary rounded-5 fs-1 fw-bold d-flex d-flex justify-content-between ps-3 mt-1 ${liClass}`}
-  on:click={onClickHandler}
-  on:keydown
->
-  <h2 class="m-0 fs-1 fw-bold">{item.vareName}</h2>
-  <div class="bg-primary rounded-5 px-3">
-    <p class="m-0">{item.mengde}</p>
-  </div>
-</li>
+{#if !isCollected || !hideCollected}
+  <li
+    class={`bg-secondary rounded-5 fs-1 fw-bold d-flex d-flex justify-content-between ps-3 mt-1 ${liClass}`}
+    on:click={onClickHandler}
+    on:keydown
+  >
+    <h2 class="m-0 fs-1 fw-bold">{item.vareName}</h2>
+    <div class="bg-primary rounded-5 px-3">
+      <p class="m-0">{item.mengde}</p>
+    </div>
+  </li>
+{/if}
 
 <style>
   .collected {
