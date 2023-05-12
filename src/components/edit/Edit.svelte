@@ -7,7 +7,7 @@
     addVarer,
   } from "../../api/api";
   import { inputs, nrInputs } from "../../store/vare";
-  import VareInput from "../create/VareInput.svelte";
+  import VareInput from "./VareInput.svelte";
 
   export let id = 0;
   export let vareData = {};

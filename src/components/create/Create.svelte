@@ -1,7 +1,7 @@
 <script>
   import { goto } from "$app/navigation";
   import { createNewHandleliste, addVarer } from "../../api/api";
-  import VareInput from "./VareInput.svelte";
+  import VareInput from "../edit/VareInput.svelte";
   import { inputs, nrInputs } from "../../store/vare";
   import { key } from "../../store/auth";
 
