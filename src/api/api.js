@@ -57,7 +57,7 @@ export async function getDetailedHandleliste(listeId) {
 }
 
 export async function createNewHandleliste(listeData) {
-  const response = await fetch(url + "HandlelisteWithVarer", {
+  const response = await fetch(url + "Handleliste", {
     method: "POST",
     body: JSON.stringify(listeData),
     headers: {
@@ -68,6 +68,8 @@ export async function createNewHandleliste(listeData) {
   if (!response.ok) {
     throw response;
   }
+
+  return await response.json();
 }
 
 export async function getAllVarer() {
