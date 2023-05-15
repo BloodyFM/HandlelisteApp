@@ -134,7 +134,7 @@
       </datalist>
     </form>
 
-    <ul class="p-0">
+    <ul class="p-0 mt-1">
       {#if $inputs.length === 0}
         <p class="mt-3">Det er ingen varer i listen. Legg til noen.</p>
       {/if}
@@ -160,7 +160,7 @@
 <style>
   ul {
     max-height: calc(
-      100vh - 27.1rem
+      100vh - 22.6rem
     ); /* adjust the value to account for the height of your nav bar */
     overflow-y: auto;
   }
