@@ -21,6 +21,8 @@
       mengde: amount,
       isCollected: false,
     });
+
+    lastEditedVare = null;
   };
 </script>
 
