@@ -19,6 +19,14 @@ export async function deleteHandleliste(listeId) {
   });
 }
 
+export async function editHandleliste(listeId, listeData) {
+  const response = await fetch(url + "Handleliste/" + listeId, {
+    method: "put",
+    body: JSON.stringify(listeData),
+    headers: { "Content-Type": "application/json" },
+  });
+}
+
 export async function cloneHandleliste(listeId) {
   // grab list in question
   const getResponse = await fetch(url + "HandlelisteWithVarer/" + listeId, {

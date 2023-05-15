@@ -8,13 +8,16 @@
     addVareInstace,
     deleteVareInstance,
     editVareInstance,
+    editHandleliste,
   } from "../../api/api";
   import VareInput from "./VareInput.svelte";
+  import { key } from "../../store/auth";
 
   export let id = 0;
   export let vareData = {};
   let data = {};
   let name = "";
+  let editName = false;
 
   let newVare = "";
 
@@ -106,11 +109,42 @@
       }
     }
   };
+
+  const submitListeNameHandler = async () => {
+    await editHandleliste(id, {
+      handlelisteId: id,
+      userId: $key,
+      handlelisteName: name,
+    });
+    editName = false;
+  };
 </script>
 
 <div class="row m-0">
   <div class="col-12 text-center">
-    <h1 class="fw-bold fs-1 my-3">{name}</h1>
+    {#if !editName}
+      <h1 class="fw-bold fs-1 my-3">
+        {name}
+        <button
+          class="btn btn-secondary rounded-5"
+          on:click={() => (editName = true)}>Edit</button
+        >
+      </h1>
+    {:else}
+      <form on:submit|preventDefault={submitListeNameHandler}>
+        <div class="form-floating mt-1">
+          <input
+            class="form-control rounded-5 bg-secondary border-secondary-subtle"
+            type="text"
+            id="name"
+            bind:value={name}
+            required
+            placeholder="Listenavn"
+          />
+          <label class="form-label text-secondary" for="name">Listenavn</label>
+        </div>
+      </form>
+    {/if}
     <h2 class="fw-bold fs-1 my-3">Legg til varer</h2>
     <form on:submit|preventDefault={submitHandler}>
       <div class="form-floating">
