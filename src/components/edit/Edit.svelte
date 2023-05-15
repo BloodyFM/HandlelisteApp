@@ -36,7 +36,6 @@
       vareName,
       mengde,
     });
-    console.log({ vareId, vareName });
     //this is the dumbest shiet, actually braindead
     inputs.set($inputs);
   };
