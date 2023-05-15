@@ -25,7 +25,9 @@
 </script>
 
 <li class="mt-1 d-flex">
-  <p>{name}</p>
+  <div class="flex-fill bg-dark rounded-5 px-3">
+    <p class="text-start fs-3 fw-bold my-2">{name}</p>
+  </div>
   <input
     class="form-control bg-secondary border-secondary-subtle fs-3 rounded-5 custom-width mx-1"
     type="number"

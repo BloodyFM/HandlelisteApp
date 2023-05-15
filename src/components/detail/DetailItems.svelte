@@ -18,7 +18,7 @@
 
 {#if !isCollected || !hideCollected}
   <li
-    class={`bg-secondary rounded-5 fs-1 fw-bold d-flex d-flex justify-content-between ps-3 mt-1 ${liClass}`}
+    class={`bg-secondary rounded-5 fs-1 fw-bold d-flex justify-content-between ps-3 mt-1 ${liClass}`}
     on:click={onClickHandler}
     on:keydown
   >

@@ -136,7 +136,7 @@
 
     <ul class="p-0">
       {#if $inputs.length === 0}
-        <p>Det er ingen varer i listen. Legg til noen.</p>
+        <p class="mt-3">Det er ingen varer i listen. Legg til noen.</p>
       {/if}
       {#each $inputs as input}
         <VareInput
