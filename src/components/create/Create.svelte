@@ -44,12 +44,6 @@
 </form>
 
 <style>
-  ul {
-    max-height: calc(
-      100vh - 27.1rem
-    ); /* adjust the value to account for the height of your nav bar */
-    overflow-y: auto;
-  }
   .btn-bottom-nav {
     position: fixed;
     bottom: 4.1rem;

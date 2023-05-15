@@ -7,10 +7,11 @@
   import { isLoggedIn } from "../../../store/auth";
 
   let vareData = null;
+  let id = $page.params.slug;
   onMount(async () => {
     if (!$isLoggedIn) goto("/auth");
     vareData = await getAllVarer();
   });
 </script>
 
-<Edit {vareData} id={$page.params.slug} />
+<Edit {vareData} {id} />

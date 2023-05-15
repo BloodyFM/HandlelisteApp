@@ -10,7 +10,7 @@
     if (email.trim().includes("@") && password.trim().length >= 6) {
       const newKey = await loginUser(email, password);
       if (newKey) {
-        const expiresIn = 60 * 60; // in seconds
+        const expiresIn = 60 * 60 * 3; // in seconds
         const expirationTime = new Date(
           new Date().getTime() + expiresIn * 1000
         );

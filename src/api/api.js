@@ -81,7 +81,7 @@ export async function getAllVarer() {
   return data;
 }
 
-export async function addVarer(vareData) {
+export async function addVare(vareData) {
   console.log("vareData in addVarer:");
   console.log(vareData);
   const response = await fetch(url + "Vare", {
@@ -100,12 +100,12 @@ export async function addVarer(vareData) {
   return data;
 }
 
-export async function editHandleliste(editedData) {
+export async function addVareInstace(handlelisteId, vareData) {
   const response = await fetch(
-    url + "HandlelisteWithVarer/" + editedData.handlelisteId,
+    url + "HandlelisteWithVarer/VareInstance/" + handlelisteId,
     {
-      method: "PUT",
-      body: JSON.stringify(editedData),
+      method: "POST",
+      body: JSON.stringify(vareData),
       headers: {
         "Content-Type": "application/json",
       },
@@ -115,6 +115,16 @@ export async function editHandleliste(editedData) {
   if (!response.ok) {
     throw response;
   }
+}
+
+export async function deleteVareInstance(handlelisteId, vareId) {
+  const response = await fetch(
+    url + "HandlelisteWithVarer/VareInstance/" + handlelisteId + "?vareId=" + vareId,
+    {
+      method: "DELETE",
+      headers: { accept: "*/*" },
+    }
+  );
 }
 
 export async function setIsCollected(handlelisteId, vareId, IsCollected) {

@@ -1,5 +1,4 @@
 export const loginUser = async (email, password) => {
-  // step 1 login to get token and UID
   const data = await fetch(
     "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyDmYZ3TihDNJ_5ujmQ_HHAveX39pYL3sdw",
     {
