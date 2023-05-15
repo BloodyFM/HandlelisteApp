@@ -1,4 +1,5 @@
 <script>
+  import { editVareInstance } from "../../api/api";
   export let handlelisteId = 0;
   export let id = 0;
   export let name = "";
@@ -7,13 +8,19 @@
 
   const removeInputHandler = () => {
     // call delete api
-    console.log("delete " + id + " from " + handlelisteId)
+    console.log("delete " + id + " from " + handlelisteId);
     removeInput(id);
   };
 
-  const amountBlurHandler = () => {
+  const amountBlurHandler = async () => {
     if (amount === null) amount = 1;
     //do stuff
+    await editVareInstance(handlelisteId, {
+      vareId: id,
+      vareName: name,
+      mengde: amount,
+      isCollected: false,
+    });
   };
 </script>
 

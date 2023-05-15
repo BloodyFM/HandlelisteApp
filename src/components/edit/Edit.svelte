@@ -7,6 +7,7 @@
     addVare,
     addVareInstace,
     deleteVareInstance,
+    editVareInstance,
   } from "../../api/api";
   import VareInput from "./VareInput.svelte";
 
@@ -41,6 +42,19 @@
     if (newVare.trim().length === 0) return;
     // check if the item is already in inputs if so add 1
     // ... code here
+    for (let i = 0; i < $inputs.length; i++) {
+      if ($inputs[i].vareName === newVare) {
+        $inputs[i].mengde++;
+        await editVareInstance(id, {
+          vareId: $inputs[i].vareId,
+          vareName: $inputs[i].vareName,
+          mengde: $inputs[i].mengde,
+          isCollected: false,
+        });
+        newVare = "";
+        return;
+      }
+    }
 
     // if the item is not already in inputs
     // 1. see if the items already on the server

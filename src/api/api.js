@@ -119,10 +119,25 @@ export async function addVareInstace(handlelisteId, vareData) {
 
 export async function deleteVareInstance(handlelisteId, vareId) {
   const response = await fetch(
-    url + "HandlelisteWithVarer/VareInstance/" + handlelisteId + "?vareId=" + vareId,
+    url +
+      "HandlelisteWithVarer/VareInstance/" +
+      handlelisteId +
+      "?vareId=" +
+      vareId,
     {
       method: "DELETE",
       headers: { accept: "*/*" },
+    }
+  );
+}
+
+export async function editVareInstance(handlelisteId, vareData) {
+  const response = await fetch(
+    url + "HandlelisteWithVarer/VareInstance/" + handlelisteId,
+    {
+      method: "PUT",
+      body: JSON.stringify(vareData),
+      headers: { "Content-Type": "application/json" },
     }
   );
 }
