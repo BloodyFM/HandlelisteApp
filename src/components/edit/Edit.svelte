@@ -44,7 +44,6 @@
   const submitHandler = async () => {
     if (newVare.trim().length === 0) return;
     // check if the item is already in inputs if so add 1
-    // ... code here
     for (let i = 0; i < $inputs.length; i++) {
       if ($inputs[i].vareName === newVare) {
         $inputs[i].mengde++;
@@ -95,10 +94,6 @@
     newVare = "";
   };
 
-  $: console.log($inputs);
-  $: console.log(vareData);
-  //goto("/detail/" + id, { replaceState: true });
-
   const removeInput = async (vareId) => {
     for (let i = 0; i < $inputs.length; i++) {
       if ($inputs[i].vareId === vareId) {
@@ -117,6 +112,24 @@
       handlelisteName: name,
     });
     editName = false;
+  };
+
+  let lastEditedVare = null;
+  const onNavigateHandler = async () => {
+    if (lastEditedVare) {
+      for (const input of $inputs) {
+        if (input.vareId === lastEditedVare) {
+          await editVareInstance(id, {
+            vareId: input.vareId,
+            vareName: input.vareName,
+            mengde: input.mengde,
+            isCollected: false,
+          });
+          break;
+        }
+      }
+    }
+    goto(`/detail/${id}`);
   };
 </script>
 
@@ -174,6 +187,7 @@
       {/if}
       {#each $inputs as input}
         <VareInput
+          bind:lastEditedVare
           handlelisteId={id}
           id={input.vareId}
           name={input.vareName}
@@ -185,7 +199,7 @@
   </div>
   <div class="col-12 btn-bottom-nav bg-dark pt-2 px-3 rounded-top-5">
     <button
-      on:click={() => goto(`/detail/${id}`)}
+      on:click={onNavigateHandler}
       class="btn btn-primary rounded-5 w-100 fs-3 fw-bold mb-3">Done</button
     >
   </div>

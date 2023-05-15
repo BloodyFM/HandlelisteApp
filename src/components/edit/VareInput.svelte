@@ -5,16 +5,16 @@
   export let name = "";
   export let amount = 1;
   export let removeInput;
+  export let lastEditedVare;
 
   const removeInputHandler = () => {
     // call delete api
-    console.log("delete " + id + " from " + handlelisteId);
     removeInput(id);
   };
 
   const amountBlurHandler = async () => {
     if (amount === null) amount = 1;
-    //do stuff
+
     await editVareInstance(handlelisteId, {
       vareId: id,
       vareName: name,
@@ -35,6 +35,7 @@
     max="99"
     bind:value={amount}
     on:blur={amountBlurHandler}
+    on:focus={() => (lastEditedVare = id)}
   />
   <button
     class="btn btn-secondary rounded-5 fs-3 custom-padding"
