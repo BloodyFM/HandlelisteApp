@@ -24,35 +24,40 @@
 <h1 class="text-center mb-3 mt-5">Login side</h1>
 <form on:submit|preventDefault={loginHandler}>
   <div class="row">
-    <div class="col-12 form-floating mb-3">
-      <input
-        class="form-control bg-dark rounded-5"
-        type="email"
-        id="inputEmail"
-        bind:value={email}
-        required
-        placeholder="name@email.com"
-      />
-      <label class="form-label text-secondary ps-4" for="inputEmail"
-        >epost</label
-      >
+    <div class="col-12">
+      <div class="form-floating mb-3 mx-3">
+        <input
+          class="form-control bg-dark rounded-5"
+          type="email"
+          id="inputEmail"
+          bind:value={email}
+          required
+          placeholder="name@email.com"
+        />
+        <label class="form-label text-secondary ps-4" for="inputEmail"
+          >epost</label
+        >
+      </div>
     </div>
-    <div class="col-12 form-floating mb-3">
-      <input
-        class="form-control bg-dark rounded-5"
-        type="password"
-        id="inputPassword"
-        bind:value={password}
-        required
-        placeholder="12345678"
-      />
-      <label class="form-label text-secondary ps-4" for="inputPassword"
-        >Password</label
-      >
+    <div class="col-12">
+      <div class="form-floating mb-3 mx-3">
+        <input
+          class="form-control bg-dark rounded-5"
+          type="password"
+          id="inputPassword"
+          bind:value={password}
+          required
+          placeholder="12345678"
+        />
+        <label class="form-label text-secondary ps-4" for="inputPassword"
+          >Password</label
+        >
+      </div>
     </div>
-    <div>
-      <button type="submit" class="btn btn-secondary w-100 btn-lg rounded-5"
-        >Login</button
+    <div class="col-12 d-flex">
+      <button
+        type="submit"
+        class="btn btn-secondary flex-fill btn-lg rounded-5 mx-3">Login</button
       >
     </div>
   </div>
