@@ -33,18 +33,31 @@
   };
 </script>
 
-<li class="row bg-secondary rounded-5 fs-1 fw-bold mt-1">
-  <a class="col-6 text-start text-decoration-none" href={"/detail/" + id}
+<li class="fs-1 d-flex align-items-center">
+  <a class="text-start text-decoration-none flex-grow-1" href={"/detail/" + id}
     >{title}</a
   >
-  <button
-    class="col-3 btn btn-secondary rounded-5 fs-3 fw-bold"
-    on:click={cloneHandler}>Clone</button
-  >
-  <button
-    class="col-3 btn btn-secondary rounded-5 fs-3 fw-bold"
-    on:click={() => (showModal = true)}>Delete</button
-  >
+  <div class="dropdown ms-auto">
+    <a
+      class="dropdown-toggle text-secondary cursor-pointer text-decoration-none no-caret no-select"
+      id="nav-dropdown"
+      data-bs-toggle="dropdown"
+      aria-expanded="false">&gt;</a
+    >
+    <ul class="custom-width dropdown-menu p-0" aria-labelledby="nav-dropdown">
+      <li>
+        <button class="btn btn-primary fs-3 w-100" on:click={cloneHandler}
+          >Clone</button
+        >
+      </li>
+      <li>
+        <button
+          class="btn btn-primary fs-3 w-100"
+          on:click={() => (showModal = true)}>Delete</button
+        >
+      </li>
+    </ul>
+  </div>
 </li>
 
 <Modal
@@ -57,4 +70,10 @@
 </Modal>
 
 <style>
+  .no-caret::after {
+    display: none;
+  }
+  .custom-width {
+    width: 5rem;
+  }
 </style>

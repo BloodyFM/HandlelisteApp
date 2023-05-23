@@ -16,6 +16,11 @@
   border: none;
 }
 
+.btn-primary:hover {
+  color: var(--colorBg) !important;
+  background-color: var(--colorUIButton) !important;
+}
+
 .btn-secondary {
   border: none;
   color: var(--colorBg);
@@ -23,7 +28,6 @@
 }
 
 .btn-secondary:hover {
-  color: var(--colorBg);
   background-color: var(--colorUIButtonInverse);
 }
 

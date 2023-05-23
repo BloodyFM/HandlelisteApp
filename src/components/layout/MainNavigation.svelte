@@ -17,7 +17,7 @@
 
 <header>
   <nav
-    class="navbar navbar-expand navbar-dark fixed-bottom mx-auto"
+    class="navbar navbar-expand fixed-bottom mx-auto"
     style="max-width: 800px;"
   >
     <div class="container-fluid container-max-width py-0 px-3">
@@ -47,7 +47,7 @@
   title="Logout?"
   {showModal}
   onConfirm={onLogoutHandler}
-  onClose={onCloseModal}><p>Are you sure you want to log out?</p></Modal
+  onClose={onCloseModal}><p>Er du sikker på at du vil logge ut?</p></Modal
 >
 
 <style>

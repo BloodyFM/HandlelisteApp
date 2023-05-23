@@ -53,7 +53,7 @@
         <div class="modal-footer d-flex">
           <button
             type="button"
-            class="btn btn-primary flex-fill"
+            class="btn btn-primary rounded-4 flex-fill"
             data-dismiss="modal"
             on:click={modalCloseHandler}>Close</button
           >
