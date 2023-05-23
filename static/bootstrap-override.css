@@ -3,11 +3,17 @@
 }
 
 .text-primary {
-  color: var(--colorUI);
+  color: var(--colorUI) !important;
 }
 
 .text-secondary {
   color: var(--colorUIBlur) !important;
+}
+
+.btn-primary {
+  color: var(--colorUIBlur) !important;
+  background-color: var(--colorBg) !important;
+  border: none;
 }
 
 .btn-secondary {

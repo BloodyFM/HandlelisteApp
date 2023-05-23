@@ -1,5 +1,4 @@
 <script>
-  import { page } from "$app/stores";
   import { logoutCtx } from "../../store/auth";
   import { goto } from "$app/navigation";
   import Modal from "../UI/Modal.svelte";
@@ -8,19 +7,6 @@
     logoutCtx();
     goto("/auth");
   };
-
-  let url = ``;
-  $: {
-    url = $page.url.pathname;
-  }
-  let create = "";
-  let listview = "";
-  $: {
-    create = url == "/create" ? "active" : "";
-  }
-  $: {
-    listview = url == "/" ? "active" : "";
-  }
 
   const onCloseModal = () => {
     showModal = false;
@@ -31,22 +17,14 @@
 
 <header>
   <nav
-    class="navbar navbar-expand navbar-dark fixed-bottom bg-dark mx-auto"
+    class="navbar navbar-expand navbar-dark fixed-bottom mx-auto"
     style="max-width: 800px;"
   >
     <div class="container-fluid container-max-width py-0 px-3">
       <ul class="nav navbar-nav w-100 d-flex">
-        <li class="nav-item flex-fill">
-          <a
-            class={`nav-link rounded-5 fs-3 fw-bold text-center bg-primary border-custom ${create}`}
-            href="/create"
-          >
-            +
-          </a>
-        </li>
         <li class="nav-item flex-fill mx-2">
           <a
-            class={`nav-link rounded-5 fs-3 fw-bold text-center bg-primary border-custom ${listview}`}
+            class="nav-link fs-3 text-center text-secondary border-custom"
             href="/"
           >
             Lister
@@ -54,7 +32,7 @@
         </li>
         <li class="nav-item flex-fill d-flex">
           <button
-            class="nav-link rounded-5 fs-3 fw-bold flex-fill bg-primary border-custom flex-fill"
+            class="nav-link fs-3 flex-fill text-secondary border-custom flex-fill"
             on:click={() => (showModal = true)}
           >
             Logout
@@ -75,11 +53,5 @@
 <style>
   .container-max-width {
     max-width: 800px;
-  }
-  .border-custom {
-    border: 5px solid var(--colorNav);
-  }
-  .border-custom:hover {
-    border-color: var(--colorBg);
   }
 </style>
