@@ -27,7 +27,7 @@
     <div class="col-12">
       <div class="form-floating mb-3 mx-3">
         <input
-          class="form-control bg-dark rounded-5"
+          class="form-control rounded-4 border-primary"
           type="email"
           id="inputEmail"
           bind:value={email}
@@ -42,7 +42,7 @@
     <div class="col-12">
       <div class="form-floating mb-3 mx-3">
         <input
-          class="form-control bg-dark rounded-5"
+          class="form-control rounded-4 border-primary"
           type="password"
           id="inputPassword"
           bind:value={password}
@@ -57,7 +57,7 @@
     <div class="col-12 d-flex">
       <button
         type="submit"
-        class="btn btn-secondary flex-fill btn-lg rounded-5 mx-3">Login</button
+        class="btn btn-secondary flex-fill btn-lg rounded-4 mx-3">Login</button
       >
     </div>
   </div>

@@ -18,10 +18,10 @@ a {
 
 :root {
   --colorBg: white;
-  --colorNav: #f86e45;
-  --colorNavInverse: #f78462;
+  --colorUIButton: #f86e45;
+  --colorUIButtonInverse: #f78462;
   --colorUI: black;
-  --colorUIFocus: #a3a6b4;
+  --colorUIBlur: #a3a6b4;
   --colorUISecond: #8e5eed;
   --colorUISecondFocus: #f2edfd;
   --colorUIDecoration: #f1f1f2;
