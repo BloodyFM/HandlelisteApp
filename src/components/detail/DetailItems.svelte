@@ -1,39 +1,62 @@
 <script>
+  import { onMount } from "svelte";
   import { setIsCollected } from "../../api/api";
 
   export let item = {};
   export let id = 0;
-  export let hideCollected = true;
+  export let checkbox = null;
+
   let isCollected = item.isCollected;
   let liClass = "";
 
+  onMount(() => {
+    if (isCollected) {
+      checkCheckbox();
+      console.log(checkbox);
+    }
+  });
+
   const onClickHandler = async () => {
     isCollected = !isCollected;
+    item.isCollected = isCollected;
     await setIsCollected(id, item.vareId, isCollected);
   };
 
-  $: if (isCollected) liClass = "collected";
-  else liClass = "";
+  $: if (isCollected) {
+    liClass = "collected";
+  } else {
+    liClass = "";
+  }
+
+  function checkCheckbox() {
+    if (checkbox) checkbox.checked = true;
+  }
 </script>
 
-{#if !isCollected || !hideCollected}
-  <li
-    class={`bg-secondary rounded-5 fs-1 fw-bold d-flex justify-content-between cursor-pointer ps-3 mt-1 ${liClass}`}
-    on:click={onClickHandler}
-    on:keydown
-  >
-    <h2 class="m-0 fs-1 fw-bold">{item.vareName}</h2>
-    <div class="bg-primary rounded-5 px-3">
-      <p class="m-0">{item.mengde}</p>
-    </div>
-  </li>
-{/if}
+<li
+  class="rounded-5 fs-1 d-flex justify-content-between cursor-pointer ps-3"
+  on:click={onClickHandler}
+  on:keydown
+>
+  <input
+    id={`collectedCheck${item.vareId}`}
+    type="checkbox"
+    bind:checked={item.isCollected}
+    class="form-check-input cursor-pointer custom-checkbox"
+  />
+  <h2 class={`fs-1 ${liClass}`}>{item.vareName}</h2>
+  <p class="text-secondary m-0">{item.mengde}</p>
+</li>
 
 <style>
   .collected {
-    background-color: var(--colorNavInverse) !important;
+    text-decoration: line-through;
+    color: var(--colorUIBlur);
   }
-  .collected div {
-    background-color: green !important;
+
+  .custom-checkbox:checked {
+    background-color: var(--colorUISecondFocus);
+    color: var(--colorUISecond);
+    border-color: var(--colorUISecond);
   }
 </style>
