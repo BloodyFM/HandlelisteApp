@@ -34,9 +34,7 @@
           required
           placeholder="name@email.com"
         />
-        <label class="form-label text-secondary ps-4" for="inputEmail"
-          >epost</label
-        >
+        <label class="form-label text-secondary" for="inputEmail">epost</label>
       </div>
     </div>
     <div class="col-12">
@@ -49,7 +47,7 @@
           required
           placeholder="12345678"
         />
-        <label class="form-label text-secondary ps-4" for="inputPassword"
+        <label class="form-label text-secondary" for="inputPassword"
           >Password</label
         >
       </div>

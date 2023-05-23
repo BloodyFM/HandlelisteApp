@@ -20,10 +20,10 @@
 <form on:submit|preventDefault={submitHandler}>
   <div class="row m-0">
     <div class="col-12 text-center">
-      <h1 class="fw-bold fs-1 my-3">Ny Handleliste</h1>
+      <h1 class="fs-1 my-5">Ny Handleliste</h1>
       <div class="form-floating">
         <input
-          class="form-control rounded-5 bg-secondary border-secondary-subtle"
+          class="form-control rounded-4 border-primary"
           type="text"
           id="name"
           bind:value={name}
@@ -33,9 +33,9 @@
         <label class="form-label text-secondary" for="name">Listenavn</label>
       </div>
     </div>
-    <div class="col-12 btn-bottom-nav bg-dark pt-2 px-3 rounded-top-5">
+    <div class="col-12 btn-bottom-nav px-3">
       <button
-        class="btn btn-primary rounded-5 w-100 fs-3 fw-bold mb-3"
+        class="btn btn-secondary rounded-5 w-100 fs-3 mb-1 p-3"
         type="submit"
         id="btn-submit">Save</button
       >
