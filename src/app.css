@@ -17,9 +17,12 @@ a {
 }
 
 :root {
-  --colorBg: #313338;
-  --colorNav: #2b2d31;
-  --colorNavInverse: #404249;
-  --colorUI: #b5bac1;
-  --colorUIFocus: #f2f3f5;
+  --colorBg: white;
+  --colorNav: #f86e45;
+  --colorNavInverse: #f78462;
+  --colorUI: black;
+  --colorUIFocus: #a3a6b4;
+  --colorUISecond: #8e5eed;
+  --colorUISecondFocus: #f2edfd;
+  --colorUIDecoration: #f1f1f2;
 }
