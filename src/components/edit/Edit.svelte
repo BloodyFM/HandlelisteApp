@@ -139,7 +139,7 @@
       <h1 class="my-5">
         {name}
         <button
-          class="btn btn-primary rounded-4"
+          class="btn btn-primary rounded-1"
           on:click={() => (editName = true)}
           ><svg
             xmlns="http://www.w3.org/2000/svg"
@@ -161,9 +161,9 @@
       </h1>
     {:else}
       <form on:submit|preventDefault={submitListeNameHandler}>
-        <div class="form-floating my-5">
+        <div class="form-floating my-5 mx-5">
           <input
-            class="form-control rounded-4 border-primary"
+            class="form-control rounded-1 border-primary"
             type="text"
             id="name"
             bind:value={name}
@@ -178,7 +178,7 @@
     <form on:submit|preventDefault={submitHandler}>
       <div class="form-floating">
         <input
-          class="form-control rounded-4 border-primary"
+          class="form-control rounded-1 border-primary"
           type="text"
           list="varer-selection"
           id="newVare"
@@ -219,7 +219,7 @@
   <div class="col-12 btn-bottom-nav px-3">
     <button
       on:click={onNavigateHandler}
-      class="btn btn-secondary rounded-5 w-100 fs-3 mb-1 p-3">Done</button
+      class="btn btn-secondary rounded-1 w-100 fs-3 mb-1 p-3">Done</button
     >
   </div>
 </div>

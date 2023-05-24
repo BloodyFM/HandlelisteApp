@@ -33,7 +33,7 @@
 </script>
 
 <li
-  class="rounded-5 fs-1 d-flex cursor-pointer ps-3"
+  class="fs-1 d-flex cursor-pointer ps-3"
   on:click={onClickHandler}
   on:keydown
 >
@@ -41,7 +41,7 @@
     id={`collectedCheck${item.vareId}`}
     type="checkbox"
     bind:checked={item.isCollected}
-    class="form-check-input cursor-pointer custom-checkbox my-0"
+    class="rounded-1 form-check-input cursor-pointer custom-checkbox my-0"
   />
   <h2 class={`fs-3 my-0 ms-4 ${liClass}`}>{item.vareName}</h2>
   <p class="fs-3 text-secondary my-0 ms-auto me-3">{item.mengde}</p>

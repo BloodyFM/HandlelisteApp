@@ -30,7 +30,7 @@
       in:fly={{ y: -50, duration: 300 }}
       out:fly={{ y: -50, duration: 300 }}
     >
-      <div class="modal-content rounded-4 bg-body">
+      <div class="modal-content rounded-1 bg-body">
         <div class="modal-header">
           {#if title}
             <h5 class="modal-title text-secondary" id="modalComponentLabel">
@@ -53,13 +53,13 @@
         <div class="modal-footer d-flex">
           <button
             type="button"
-            class="btn btn-primary rounded-4 flex-fill"
+            class="btn btn-primary rounded-1 flex-fill"
             data-dismiss="modal"
             on:click={modalCloseHandler}>Close</button
           >
           <button
             type="button"
-            class="btn btn-secondary rounded-4 flex-fill"
+            class="btn btn-secondary rounded-1 flex-fill"
             on:click={() => {
               if (onConfirm) onConfirm();
             }}>Confirm</button

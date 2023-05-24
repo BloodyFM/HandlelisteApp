@@ -67,13 +67,13 @@
       <div class="w-50 m-0 px-1">
         <button
           on:click={toggleHideCollected}
-          class="btn btn-secondary rounded-5 w-100 fs-3 mb-1 p-3"
+          class="btn btn-secondary rounded-1 w-100 fs-3 mb-1 p-3"
           id="btn-submit">{hideToggleText}</button
         >
       </div>
       <div class="w-50 m-0 px-1">
         <button
-          class="btn btn-secondary rounded-5 w-100 fs-3 mb-1 p-3"
+          class="btn btn-secondary rounded-1 w-100 fs-3 mb-1 p-3"
           on:click={() => goto("/edit/" + id)}>Edit</button
         >
       </div>

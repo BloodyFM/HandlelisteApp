@@ -31,7 +31,7 @@
     <p class="text-start fs-3 my-2">{name}</p>
   </div>
   <input
-    class="form-control text-center border-primary fs-3 rounded-4 custom-width mx-1"
+    class="form-control text-center border-primary fs-3 rounded-1 custom-width mx-1"
     type="number"
     min="1"
     max="99"
@@ -40,7 +40,7 @@
     on:focus={() => (lastEditedVare = id)}
   />
   <button
-    class="btn btn-primary rounded-4 fs-3 custom-padding"
+    class="btn btn-primary rounded-1 fs-3 custom-padding"
     on:click={removeInputHandler}
     ><svg
       xmlns="http://www.w3.org/2000/svg"

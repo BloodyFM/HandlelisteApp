@@ -47,7 +47,7 @@
 
   <div class="col-12 btn-bottom-nav px-3">
     <button
-      class="btn btn-secondary rounded-5 w-100 fs-3 mb-1 p-3"
+      class="btn btn-secondary rounded-1 w-100 fs-3 mb-1 p-3"
       on:click={() => goto("/create")}>Create</button
     >
   </div>

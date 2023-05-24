@@ -24,7 +24,7 @@
       <h1 class="fs-1 my-5">Ny Handleliste</h1>
       <div class="form-floating">
         <input
-          class="form-control rounded-4 border-primary"
+          class="form-control rounded-1 border-primary"
           type="text"
           id="name"
           bind:value={name}
@@ -36,7 +36,7 @@
     </div>
     <div class="col-12 btn-bottom-nav px-3">
       <button
-        class="btn btn-secondary rounded-5 w-100 fs-3 mb-1 p-3"
+        class="btn btn-secondary rounded-1 w-100 fs-3 mb-1 p-3"
         type="submit"
         id="btn-submit">Save</button
       >

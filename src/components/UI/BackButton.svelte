@@ -3,7 +3,7 @@
 </script>
 
 <button
-  class="btn text-primary position-top-left-corner"
+  class="btn text-primary position-top-left-corner rounded-1"
   type="button"
   on:click={() => onClick()}
   ><svg
