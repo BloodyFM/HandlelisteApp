@@ -135,18 +135,34 @@
 <div class="row m-0">
   <div class="col-12 text-center">
     {#if !editName}
-      <h1 class="fw-bold fs-1 my-3">
+      <h1 class="my-5">
         {name}
         <button
-          class="btn btn-secondary rounded-5"
-          on:click={() => (editName = true)}>Edit</button
+          class="btn btn-primary rounded-4"
+          on:click={() => (editName = true)}
+          ><svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            fill="currentColor"
+            class="bi bi-pencil-square"
+            viewBox="0 0 16 16"
+          >
+            <path
+              d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"
+            />
+            <path
+              fill-rule="evenodd"
+              d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"
+            />
+          </svg></button
         >
       </h1>
     {:else}
       <form on:submit|preventDefault={submitListeNameHandler}>
-        <div class="form-floating mt-1">
+        <div class="form-floating my-5">
           <input
-            class="form-control rounded-5 bg-secondary border-secondary-subtle"
+            class="form-control rounded-4 border-primary"
             type="text"
             id="name"
             bind:value={name}
@@ -157,11 +173,11 @@
         </div>
       </form>
     {/if}
-    <h2 class="fw-bold fs-1 my-3">Legg til varer</h2>
+    <h2 class="fs-1 mb-3">Legg til varer</h2>
     <form on:submit|preventDefault={submitHandler}>
       <div class="form-floating">
         <input
-          class="form-control rounded-5 bg-secondary border-secondary-subtle"
+          class="form-control rounded-4 border-primary"
           type="text"
           list="varer-selection"
           id="newVare"
@@ -180,9 +196,9 @@
       </datalist>
     </form>
 
-    <ul class="p-0 mt-1">
+    <ul class="p-0 mt-3">
       {#if $inputs.length === 0}
-        <p class="mt-3">Det er ingen varer i listen. Legg til noen.</p>
+        <p class="mt-1">Det er ingen varer i listen. Legg til noen.</p>
       {/if}
       {#each $inputs as input}
         <VareInput
@@ -193,21 +209,24 @@
           bind:amount={input.mengde}
           {removeInput}
         />
+        {#if input != $inputs[$inputs.length - 1]}
+          <hr />
+        {/if}
       {/each}
     </ul>
   </div>
-  <div class="col-12 btn-bottom-nav bg-dark pt-2 px-3 rounded-top-5">
+  <div class="col-12 btn-bottom-nav px-3">
     <button
       on:click={onNavigateHandler}
-      class="btn btn-primary rounded-5 w-100 fs-3 fw-bold mb-3">Done</button
+      class="btn btn-secondary rounded-5 w-100 fs-3 mb-1 p-3">Done</button
     >
   </div>
 </div>
 
 <style>
   ul {
-    max-height: calc(
-      100vh - 22.6rem
+    height: calc(
+      100vh - 26.8rem
     ); /* adjust the value to account for the height of your nav bar */
     overflow-y: auto;
   }

@@ -26,12 +26,12 @@
   };
 </script>
 
-<li class="mt-1 d-flex">
-  <div class="flex-fill bg-dark rounded-5 px-3">
-    <p class="text-start fs-3 fw-bold my-2">{name}</p>
+<li class="d-flex">
+  <div class="flex-fill px-3">
+    <p class="text-start fs-3 my-2">{name}</p>
   </div>
   <input
-    class="form-control bg-secondary border-secondary-subtle fs-3 rounded-5 custom-width mx-1"
+    class="form-control text-center border-primary fs-3 rounded-4 custom-width mx-1"
     type="number"
     min="1"
     max="99"
@@ -40,7 +40,7 @@
     on:focus={() => (lastEditedVare = id)}
   />
   <button
-    class="btn btn-secondary rounded-5 fs-3 custom-padding"
+    class="btn btn-primary rounded-4 fs-3 custom-padding"
     on:click={removeInputHandler}
     ><svg
       xmlns="http://www.w3.org/2000/svg"
@@ -65,8 +65,8 @@
     max-width: 3.5rem;
   }
   .custom-padding {
-    padding-left: 0.5rem;
-    padding-right: 0.5rem;
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
   }
 
   /* hide annoying number arrows */
