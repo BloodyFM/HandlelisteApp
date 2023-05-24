@@ -9,18 +9,33 @@
 
   let data = {};
   let checkboxes = [];
+  let hrTags = [];
   onMount(async () => {
     data = await getDetailedHandleliste(id);
-    checkboxes = Array.from(
-      document.querySelectorAll('input[type="checkbox"]')
-    );
+    updateDocument();
   });
 
   afterUpdate(() => {
+    updateDocument();
+  });
+
+  const updateDocument = () => {
     checkboxes = Array.from(
       document.querySelectorAll('input[type="checkbox"]')
     );
-  });
+    trimBottomHr();
+  };
+
+  const trimBottomHr = () => {
+    hrTags = document.getElementsByTagName("hr");
+    // only if there is to many hrTags
+    if (hrTags.length > 0 && checkboxes.length <= hrTags.length) {
+      // Get the last <hr/> tag
+      const lastHrTag = hrTags[hrTags.length - 1];
+      // Remove the last <hr/> tag
+      lastHrTag.parentNode.removeChild(lastHrTag);
+    }
+  };
 
   let hideCollected = true;
   let hideToggleText = "Vis skjulte varer";
@@ -39,11 +54,11 @@
       <ul class="px-1">
         {#each data.varer as item, i}
           {#if !hideCollected}
-            <hr />
             <DetailItems bind:item {id} bind:checkbox={checkboxes[i]} />
+            <hr />
           {:else if hideCollected && !item.isCollected}
-            <hr />
             <DetailItems bind:item {id} bind:checkbox={checkboxes[i]} />
+            <hr />
           {/if}
         {/each}
       </ul>
