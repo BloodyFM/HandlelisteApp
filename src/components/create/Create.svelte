@@ -2,6 +2,7 @@
   import { goto } from "$app/navigation";
   import { createNewHandleliste } from "../../api/api";
   import { key } from "../../store/auth";
+  import BackButton from "../UI/BackButton.svelte";
 
   let name = "";
 
@@ -42,6 +43,7 @@
     </div>
   </div>
 </form>
+<BackButton onClick={() => goto("/")} />
 
 <style>
   .btn-bottom-nav {

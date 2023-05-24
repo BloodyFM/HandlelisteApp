@@ -3,6 +3,7 @@
   import { getDetailedHandleliste } from "../../api/api";
   import DetailItems from "./DetailItems.svelte";
   import { goto } from "$app/navigation";
+  import BackButton from "../UI/BackButton.svelte";
 
   export let id = 0;
 
@@ -66,6 +67,7 @@
 {:else}
   <p class="text-center fs-1">loading...</p>
 {/if}
+<BackButton onClick={() => goto("/")} />
 
 <style>
   ul {

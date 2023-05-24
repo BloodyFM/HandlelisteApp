@@ -12,6 +12,7 @@
   } from "../../api/api";
   import VareInput from "./VareInput.svelte";
   import { key } from "../../store/auth";
+  import BackButton from "../UI/BackButton.svelte";
 
   export let id = 0;
   export let vareData = {};
@@ -222,6 +223,7 @@
     >
   </div>
 </div>
+<BackButton onClick={onNavigateHandler} />
 
 <style>
   ul {
