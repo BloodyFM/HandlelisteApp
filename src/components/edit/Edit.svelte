@@ -9,6 +9,7 @@
     deleteVareInstance,
     editVareInstance,
     editHandleliste,
+    getSuggestedLists,
   } from "../../api/api";
   import VareInput from "./VareInput.svelte";
   import { key } from "../../store/auth";
@@ -90,8 +91,11 @@
     };
     await addVareInstace(id, newInput);
 
-    //reset for new input
+    // reset for new input
     newVare = "";
+    // get suggested auto complete results
+    console.log("hello?");
+    getSuggestedLists(id);
   };
 
   const removeInput = async (vareId) => {
