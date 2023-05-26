@@ -30,6 +30,7 @@
           bind:value={name}
           required
           placeholder="Name"
+          maxlength="20"
         />
         <label class="form-label text-secondary" for="name">Listenavn</label>
       </div>
