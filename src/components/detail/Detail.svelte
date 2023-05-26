@@ -55,7 +55,12 @@
       <ul class="px-1">
         {#each data.varer as item, i}
           {#if showCollected}
-            <DetailItems bind:item {id} bind:checkbox={checkboxes[i]} />
+            <DetailItems
+              bind:item
+              {id}
+              bind:checkbox={checkboxes[i]}
+              bind:showCollected
+            />
             <hr />
           {:else if !showCollected && !item.isCollected}
             <DetailItems bind:item {id} bind:checkbox={checkboxes[i]} />

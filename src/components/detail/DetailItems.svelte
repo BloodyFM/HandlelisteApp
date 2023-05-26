@@ -1,12 +1,12 @@
 <script>
   import { fade } from "svelte/transition";
-  //transition:fade={{ duration: 150 }}
   import { onMount } from "svelte";
   import { setIsCollected } from "../../api/api";
 
   export let item = {};
   export let id = 0;
   export let checkbox = null;
+  export let showCollected = false;
 
   let isCollected = item.isCollected;
   let liClass = "";
@@ -34,7 +34,7 @@
   }
 </script>
 
-{#if isCollected}
+{#if isCollected && !showCollected}
   <li
     transition:fade={{ duration: 150 }}
     class="fs-1 d-flex cursor-pointer ps-3"
