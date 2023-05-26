@@ -1,4 +1,6 @@
 <script>
+  //import { fade } from "svelte/transition";
+  //transition:fade={{ duration: 150 }}
   import { onMount } from "svelte";
   import { setIsCollected } from "../../api/api";
 
