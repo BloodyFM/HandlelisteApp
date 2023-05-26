@@ -1,5 +1,5 @@
 <script>
-  //import { fade } from "svelte/transition";
+  import { fade } from "svelte/transition";
   //transition:fade={{ duration: 150 }}
   import { onMount } from "svelte";
   import { setIsCollected } from "../../api/api";
@@ -34,20 +34,38 @@
   }
 </script>
 
-<li
-  class="fs-1 d-flex cursor-pointer ps-3"
-  on:click={onClickHandler}
-  on:keydown
->
-  <input
-    id={`collectedCheck${item.vareId}`}
-    type="checkbox"
-    bind:checked={item.isCollected}
-    class="rounded-1 form-check-input cursor-pointer custom-checkbox my-0"
-  />
-  <h2 class={`fs-3 my-0 ms-4 ${liClass}`}>{item.vareName}</h2>
-  <p class="fs-3 text-secondary my-0 ms-auto me-3">{item.mengde}</p>
-</li>
+{#if isCollected}
+  <li
+    transition:fade={{ duration: 150 }}
+    class="fs-1 d-flex cursor-pointer ps-3"
+    on:click={onClickHandler}
+    on:keydown
+  >
+    <input
+      id={`collectedCheck${item.vareId}`}
+      type="checkbox"
+      bind:checked={item.isCollected}
+      class="rounded-1 form-check-input cursor-pointer custom-checkbox my-0"
+    />
+    <h2 class={`fs-3 my-0 ms-4 ${liClass}`}>{item.vareName}</h2>
+    <p class="fs-3 text-secondary my-0 ms-auto me-3">{item.mengde}</p>
+  </li>
+{:else}
+  <li
+    class="fs-1 d-flex cursor-pointer ps-3"
+    on:click={onClickHandler}
+    on:keydown
+  >
+    <input
+      id={`collectedCheck${item.vareId}`}
+      type="checkbox"
+      bind:checked={item.isCollected}
+      class="rounded-1 form-check-input cursor-pointer custom-checkbox my-0"
+    />
+    <h2 class={`fs-3 my-0 ms-4 ${liClass}`}>{item.vareName}</h2>
+    <p class="fs-3 text-secondary my-0 ms-auto me-3">{item.mengde}</p>
+  </li>
+{/if}
 
 <style>
   .collected {

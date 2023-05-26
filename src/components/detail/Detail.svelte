@@ -38,7 +38,14 @@
     }
   };
 
-  let showCollected = true;
+  let showCollected = false;
+
+  function onReturn() {
+    showCollected = false;
+    setTimeout(() => {
+      goto("/");
+    }, 150);
+  }
 </script>
 
 {#if data.handlelisteName}
@@ -73,7 +80,7 @@
 {:else}
   <p class="text-center fs-1">loading...</p>
 {/if}
-<BackButton onClick={() => goto("/")} />
+<BackButton onClick={onReturn} />
 
 <style>
   ul {
