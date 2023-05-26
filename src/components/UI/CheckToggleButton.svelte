@@ -4,14 +4,25 @@
   export let id = "check";
 </script>
 
-<div class="mb-3 form-check pos">
-  <input type="checkbox" bind:checked={isChecked} id class="form-check-input" />
+<div class="form-check form-switch custom-properties">
+  <input
+    type="checkbox"
+    role="switch"
+    bind:checked={isChecked}
+    id
+    class="form-check-input custom-color"
+  />
   <label for={id} class="form-check-label">{isCheckedLabel}</label>
 </div>
 
 <style>
-  .pos {
+  .custom-properties {
     position: absolute;
     right: 1rem;
+  }
+
+  .custom-color:checked {
+    background-color: var(--colorUISecondFocus) !important;
+    border-color: var(--colorUISecond);
   }
 </style>
