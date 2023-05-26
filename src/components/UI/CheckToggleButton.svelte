@@ -4,7 +4,7 @@
   export let id = "check";
 </script>
 
-<div class="form-check form-switch custom-properties">
+<div class="form-check form-switch">
   <input
     type="checkbox"
     role="switch"
@@ -16,11 +16,6 @@
 </div>
 
 <style>
-  .custom-properties {
-    position: absolute;
-    right: 1rem;
-  }
-
   .custom-color:checked {
     background-color: var(--colorUISecondFocus) !important;
     border-color: var(--colorUISecond);

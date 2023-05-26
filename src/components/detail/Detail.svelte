@@ -30,7 +30,7 @@
   const trimBottomHr = () => {
     hrTags = document.getElementsByTagName("hr");
     // only if there is to many hrTags
-    if (hrTags.length > 0 && checkboxes.length <= hrTags.length) {
+    if (hrTags.length > 0 && checkboxes.length - 1 <= hrTags.length) {
       // Get the last <hr/> tag
       const lastHrTag = hrTags[hrTags.length - 1];
       // Remove the last <hr/> tag
@@ -42,7 +42,7 @@
 </script>
 
 {#if data.handlelisteName}
-  <div class="row m-0 parent-div">
+  <div class="row m-0">
     <h1 class="col-12 text-center my-5">{data.handlelisteName}</h1>
     <div class="col-12">
       <ul class="px-1">
@@ -57,17 +57,17 @@
         {/each}
       </ul>
     </div>
+    <div class="col-12 d-flex justify-content-center">
+      <CheckToggleButton
+        bind:isChecked={showCollected}
+        isCheckedLabel="Vis skjulte varer"
+      />
+    </div>
     <div class="col-12 btn-bottom-nav px-3">
       <button
         class="btn btn-secondary rounded-1 w-100 fs-3 mb-1 p-3"
         on:click={() => goto("/edit/" + id)}>Edit</button
       >
-    </div>
-    <div class="check-custom-placement">
-      <CheckToggleButton
-        bind:isChecked={showCollected}
-        isCheckedLabel="Vis skjulte varer"
-      />
     </div>
   </div>
 {:else}
@@ -78,7 +78,7 @@
 <style>
   ul {
     height: calc(
-      100vh - 18.5rem
+      100vh - 20rem
     ); /* adjust the value to account for the height of your nav bar */
     overflow-y: auto;
   }
@@ -87,13 +87,5 @@
     position: fixed;
     bottom: 4.1rem;
     max-width: 800px;
-  }
-
-  .parent-div {
-    position: relative;
-  }
-  .check-custom-placement {
-    position: absolute;
-    top: 3.5rem;
   }
 </style>
