@@ -14,6 +14,7 @@
   import VareInput from "./VareInput.svelte";
   import { key } from "../../store/auth";
   import BackButton from "../UI/BackButton.svelte";
+  import Suggestion from "./Suggestion.svelte";
 
   export let id = 0;
   export let vareData = {};
@@ -98,7 +99,6 @@
     // reset for new input
     newVare = "";
     // get suggested auto complete results
-    console.log("hello?");
     suggestedItem = await getSuggestedItem(id);
   };
 
@@ -194,7 +194,6 @@
           list="varer-selection"
           id="newVare"
           bind:value={newVare}
-          required
           placeholder="newVare"
         />
         <label class="form-label text-secondary" for="newVare">Vare</label>
@@ -206,6 +205,14 @@
           {/each}
         {/if}
       </datalist>
+      {#if suggestedItem}
+        <Suggestion
+          handlelisteId={id}
+          data={suggestedItem}
+          updateRecommendation={async () =>
+            (suggestedItem = await getSuggestedItem(id))}
+        />
+      {/if}
     </form>
 
     <ul class="p-0 mt-3">
@@ -239,7 +246,7 @@
 <style>
   ul {
     height: calc(
-      100vh - 26.8rem
+      100vh - 28.5rem
     ); /* adjust the value to account for the height of your nav bar */
     overflow-y: auto;
   }

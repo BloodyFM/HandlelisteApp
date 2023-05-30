@@ -173,8 +173,6 @@ export async function setIsCollected(handlelisteId, vareId, IsCollected) {
 }
 
 export async function getSuggestedItem(handlelisteId) {
-  console.log(handlelisteId);
-  console.log(url + "Vare/Recommend/" + handlelisteId);
   const getResponse = await fetch(url + "Vare/Recommend/" + handlelisteId, {
     method: "GET",
     headers: { accept: "text/plain" },
