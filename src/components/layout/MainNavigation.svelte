@@ -1,7 +1,13 @@
 <script>
   import { logoutCtx } from "../../store/auth";
   import { goto } from "$app/navigation";
+  import { page } from "$app/stores";
   import Modal from "../UI/Modal.svelte";
+
+  let currentPath;
+  let active = false;
+  $: currentPath = $page.url.pathname;
+  $: active = currentPath === "/" ? "active" : "";
 
   const onLogoutHandler = () => {
     logoutCtx();
@@ -24,7 +30,7 @@
       <ul class="nav navbar-nav w-100 d-flex">
         <li class="nav-item flex-fill mx-2">
           <a
-            class="nav-link fs-3 text-center text-secondary border-custom"
+            class={`nav-link fs-3 text-center text-secondary border-custom ${active}`}
             href="/"
           >
             Lister
@@ -53,5 +59,9 @@
 <style>
   .container-max-width {
     max-width: 800px;
+  }
+
+  .active {
+    color: black !important;
   }
 </style>

@@ -172,14 +172,13 @@ export async function setIsCollected(handlelisteId, vareId, IsCollected) {
   }
 }
 
-export async function getSuggestedLists(handlelisteId) {
-  const getResponse = await fetch(
-    url + "HandlelisteWithVarer/VareInstance/Reccomend/Array/" + handlelisteId,
-    {
-      method: "GET",
-      headers: { "Access-Control-Allow-Origin": "http://localhost:5076" },
-    }
-  );
+export async function getSuggestedItem(handlelisteId) {
+  console.log(handlelisteId);
+  console.log(url + "Vare/Recommend/" + handlelisteId);
+  const getResponse = await fetch(url + "Vare/Recommend/" + handlelisteId, {
+    method: "GET",
+    headers: { accept: "text/plain" },
+  });
   const getData = await getResponse.json();
   console.log(getData);
   return getData;

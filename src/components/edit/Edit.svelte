@@ -9,7 +9,7 @@
     deleteVareInstance,
     editVareInstance,
     editHandleliste,
-    getSuggestedLists,
+    getSuggestedItem,
   } from "../../api/api";
   import VareInput from "./VareInput.svelte";
   import { key } from "../../store/auth";
@@ -20,6 +20,7 @@
   let data = {};
   let name = "";
   let editName = false;
+  let suggestedItem = null;
 
   let newVare = "";
 
@@ -29,6 +30,9 @@
     name = data.handlelisteName;
     for (const { vareId, vareName, mengde } of data.varer) {
       addInput(vareId, vareName, mengde);
+    }
+    if ($inputs.length > 0) {
+      suggestedItem = await getSuggestedItem(id);
     }
   });
 
@@ -95,7 +99,7 @@
     newVare = "";
     // get suggested auto complete results
     console.log("hello?");
-    getSuggestedLists(id);
+    suggestedItem = await getSuggestedItem(id);
   };
 
   const removeInput = async (vareId) => {
@@ -104,6 +108,9 @@
         await deleteVareInstance(id, $inputs[i].vareId);
         $inputs.splice(i, 1);
         inputs.set($inputs);
+        if ($inputs.length > 0) {
+          suggestedItem = await getSuggestedItem(id);
+        }
         break;
       }
     }
