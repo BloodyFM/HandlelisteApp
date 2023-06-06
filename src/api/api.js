@@ -51,7 +51,6 @@ export async function cloneHandleliste(listeId) {
   }
 
   const postData = await postResponse.json();
-  console.log(postData);
   return postData;
 }
 
@@ -90,8 +89,6 @@ export async function getAllVarer() {
 }
 
 export async function addVare(vareData) {
-  console.log("vareData in addVarer:");
-  console.log(vareData);
   const response = await fetch(url + "Vare", {
     method: "POST",
     body: JSON.stringify(vareData),
@@ -178,6 +175,5 @@ export async function getSuggestedItem(handlelisteId) {
     headers: { accept: "text/plain" },
   });
   const getData = await getResponse.json();
-  console.log(getData);
   return getData;
 }
